@@ -5,19 +5,22 @@ namespace HetznerDotNet.Objects.SshKey
 {
     public class SshKey
     {
+        [JsonProperty("id")]
+        public long id { get; set; }
+
         [JsonProperty("created")]
-        public DateTime? Created { get; set; }
+        public DateTime? created { get; set; }
 
         [JsonProperty("fingerprint")]
-        public string? Fingerprint { get; set; }
+        public string? fingerprint { get; set; }
 
-        [JsonProperty("id")]
-        public long Id { get; set; }
+        //[JsonProperty("labels")]
+        //public Labels labels { get; set; }
 
         [JsonProperty("name")]
-        public string? Name { get; set; }
+        public string? name { get; set; }
 
         [JsonProperty("public_key")]
-        public string? PublicKey { get; set; }
+        public string? public_key { get; set; }
     }
 }

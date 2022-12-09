@@ -21,13 +21,13 @@ namespace HetznerDotNet.Api
                 HetznerDotNet.Objects.SshKey.Get.Response response = JsonConvert.DeserializeObject<HetznerDotNet.Objects.SshKey.Get.Response>(await ApiCore.SendGetRequest($"/ssh_keys?page={page}&per_page=25")) ?? new HetznerDotNet.Objects.SshKey.Get.Response();
 
                 // Run
-                foreach (SshKey row in response.SshKeys)
+                foreach (SshKey row in response.sshKeys)
                 {
                     listSshKeys.Add(row);
                 }
 
                 // Finish?
-                if (response.Meta.pagination.next_page == null)
+                if (response.meta.pagination.next_page == null)
                 {
                     // Yes, finish
                     return listSshKeys;
@@ -41,7 +41,7 @@ namespace HetznerDotNet.Api
             Response response = JsonConvert.DeserializeObject<Response>(await ApiCore.SendGetRequest($"/ssh_keys/{id}")) ?? new Response();
 
             // Return
-            return response.SshKey;
+            return response.sshKey;
         }
 
         public static async Task<SshKey> Create(string sshName, string sshPublicKey)
@@ -60,10 +60,10 @@ namespace HetznerDotNet.Api
         public static async Task<SshKey> Update(SshKey sshKey)
         {
             // Preparing raw
-            string rawSsh = $"{{\"name\":\"{sshKey.Name}\"}}";
+            string rawSsh = $"{{\"name\":\"{sshKey.name}\"}}";
 
             // Send post
-            string jsonResponse = await ApiCore.SendPutRequest($"/ssh_keys/{sshKey.Id}", rawSsh);
+            string jsonResponse = await ApiCore.SendPutRequest($"/ssh_keys/{sshKey.id}", rawSsh);
             
             // Return
             JObject result = JObject.Parse(jsonResponse);
@@ -73,7 +73,7 @@ namespace HetznerDotNet.Api
         public static async Task Delete(SshKey sshKey)
         {
             // Send post
-            await ApiCore.SendDeleteRequest($"/ssh_keys/{sshKey.Id}");
+            await ApiCore.SendDeleteRequest($"/ssh_keys/{sshKey.id}");
         }
     }
 }
