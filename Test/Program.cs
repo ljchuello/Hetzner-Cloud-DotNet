@@ -59,6 +59,14 @@ namespace Test
                 //placementGroupAdd.Name = $"TEST - {Guid.NewGuid()}";
                 //HetznerDotNet.Api.PlacementGroup placementGroupUpdate = await HetznerDotNet.Api.PlacementGroup.Update(placementGroupAdd);
                 //await HetznerDotNet.Api.PlacementGroup.Delete(placementGroupAdd);
+
+                // Volumes
+                //HetznerDotNet.Api.Volume volumeCreate = await HetznerDotNet.Api.Volume.Create($"nvmexd-{Guid.NewGuid()}", 15, "xfs", "nbg1");
+                //List<HetznerDotNet.Api.Volume> listvVolumes = await HetznerDotNet.Api.Volume.Get();
+                //HetznerDotNet.Api.Volume volume = await HetznerDotNet.Api.Volume.Get(listvVolumes[0].Id);
+                //volumeCreate.Name = $"TEST-{Guid.NewGuid()}";
+                //HetznerDotNet.Api.Volume volumeEdit = await HetznerDotNet.Api.Volume.Update(volumeCreate);
+                //await HetznerDotNet.Api.Volume.Delete(volumeCreate);
             }
             catch (Exception ex)
             {
