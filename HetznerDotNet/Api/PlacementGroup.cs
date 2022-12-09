@@ -43,6 +43,19 @@ namespace HetznerDotNet.Api
             return response.PlacementGroup;
         }
 
+        public static async Task<PlacementGroup> Create(string name)
+        {
+            // Preparing raw
+            string raw = $"{{\"name\":\"{name}\",\"type\":\"spread\"}}";
+
+            // Send post
+            string jsonResponse = await ApiCore.SendPostRequest("/placement_groups", raw);
+
+            // Return
+            JObject result = JObject.Parse(jsonResponse);
+            return JsonConvert.DeserializeObject<PlacementGroup>($"{result["placement_group"]}") ?? new PlacementGroup();
+        }
+
         public static async Task<PlacementGroup> Update(PlacementGroup placementGroup)
         {
             // Preparing raw
@@ -54,6 +67,12 @@ namespace HetznerDotNet.Api
             // Return
             JObject result = JObject.Parse(jsonResponse);
             return JsonConvert.DeserializeObject<PlacementGroup>($"{result["placement_group"]}") ?? new PlacementGroup();
+        }
+
+        public static async Task Delete(PlacementGroup placementGroup)
+        {
+            // Send post
+            await ApiCore.SendDeleteRequest($"/placement_groups/{placementGroup.Id}");
         }
     }
 }
