@@ -1,7 +1,8 @@
-﻿using HetznerCloudApi.Objects.Universal;
+﻿using System.Collections.Generic;
+using HetznerDotNet.Objects.Universal;
 using Newtonsoft.Json;
 
-namespace HetznerCloudApi.Objects.SshKey.Get
+namespace HetznerDotNet.Objects.SshKey.Get
 {
     public class Response
     {

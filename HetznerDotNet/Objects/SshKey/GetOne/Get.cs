@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace HetznerCloudApi.Objects.SshKey.GetOne
+namespace HetznerDotNet.Objects.SshKey.GetOne
 {
     public class Response
     {

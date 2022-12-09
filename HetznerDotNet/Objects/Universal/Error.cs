@@ -1,7 +1,7 @@
-﻿using Newtonsoft.Json;
-using System.Runtime.Serialization;
+﻿using System.Runtime.Serialization;
+using Newtonsoft.Json;
 
-namespace HetznerCloudApi.Objects.Universal
+namespace HetznerDotNet.Objects.Universal
 {
     [DataContract(Name = "error")]
     public class Error

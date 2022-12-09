@@ -1,6 +1,7 @@
-﻿using Newtonsoft.Json;
+﻿using System.Collections.Generic;
+using Newtonsoft.Json;
 
-namespace HetznerCloudApi.Objects.Location.Get
+namespace HetznerDotNet.Objects.Location.Get
 {
     public class Response
     {

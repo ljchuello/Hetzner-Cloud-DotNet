@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace HetznerCloudApi.Objects.Universal
+namespace HetznerDotNet.Objects.Universal
 {
     public class Meta
     {

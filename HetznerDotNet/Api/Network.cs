@@ -1,9 +1,12 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using HetznerDotNet.Objects.Network.GetOne;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
-namespace HetznerCloudApi.Api
+namespace HetznerDotNet.Api
 {
-    public class Network : Objects.Network.Network
+    public class Network : HetznerDotNet.Objects.Network.Network
     {
         /// <summary>
         /// Get all network
@@ -19,7 +22,7 @@ namespace HetznerCloudApi.Api
                 page++;
 
                 // Get list
-                Objects.Network.Get.Response response = JsonConvert.DeserializeObject<Objects.Network.Get.Response>(await ApiCore.SendGetRequest($"/networks?page={page}&per_page=25")) ?? new Objects.Network.Get.Response();
+                HetznerDotNet.Objects.Network.Get.Response response = JsonConvert.DeserializeObject<HetznerDotNet.Objects.Network.Get.Response>(await ApiCore.SendGetRequest($"/networks?page={page}&per_page=25")) ?? new HetznerDotNet.Objects.Network.Get.Response();
 
                 // Run
                 foreach (Network row in response.networks)
@@ -44,7 +47,7 @@ namespace HetznerCloudApi.Api
         public static async Task<Network> Get(long id)
         {
             // Get list
-            Objects.Network.GetOne.Response response = JsonConvert.DeserializeObject<Objects.Network.GetOne.Response>(await ApiCore.SendGetRequest($"/networks/{id}")) ?? new Objects.Network.GetOne.Response();
+            Response response = JsonConvert.DeserializeObject<Response>(await ApiCore.SendGetRequest($"/networks/{id}")) ?? new Response();
 
             // Return
             return response.network;

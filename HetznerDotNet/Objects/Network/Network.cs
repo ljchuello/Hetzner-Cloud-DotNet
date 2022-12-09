@@ -1,6 +1,8 @@
-﻿using Newtonsoft.Json;
+﻿using System;
+using System.Collections.Generic;
+using Newtonsoft.Json;
 
-namespace HetznerCloudApi.Objects.Network
+namespace HetznerDotNet.Objects.Network
 {
     public class Network
     {

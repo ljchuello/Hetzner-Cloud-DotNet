@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace HetznerCloudApi.Objects.Location
+namespace HetznerDotNet.Objects.Location
 {
     public class Location
     {

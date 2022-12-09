@@ -1,8 +1,11 @@
-﻿using Newtonsoft.Json;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using HetznerDotNet.Objects.ServerType.GetOne;
+using Newtonsoft.Json;
 
-namespace HetznerCloudApi.Api
+namespace HetznerDotNet.Api
 {
-    public class ServerType : Objects.ServerType.ServerType
+    public class ServerType : HetznerDotNet.Objects.ServerType.ServerType
     {
         public static async Task<List<ServerType>> Get()
         {
@@ -14,7 +17,7 @@ namespace HetznerCloudApi.Api
                 page++;
 
                 // Get list
-                Objects.ServerType.Get.Response response = JsonConvert.DeserializeObject<Objects.ServerType.Get.Response>(await ApiCore.SendGetRequest($"/server_types?page={page}&per_page=25")) ?? new Objects.ServerType.Get.Response();
+                HetznerDotNet.Objects.ServerType.Get.Response response = JsonConvert.DeserializeObject<HetznerDotNet.Objects.ServerType.Get.Response>(await ApiCore.SendGetRequest($"/server_types?page={page}&per_page=25")) ?? new HetznerDotNet.Objects.ServerType.Get.Response();
 
                 // Run
                 foreach (ServerType row in response.server_types)
@@ -34,7 +37,7 @@ namespace HetznerCloudApi.Api
         public static async Task<ServerType> Get(long id)
         {
             // Get list
-            Objects.ServerType.GetOne.Response response = JsonConvert.DeserializeObject<Objects.ServerType.GetOne.Response>(await ApiCore.SendGetRequest($"/server_types/{id}")) ?? new Objects.ServerType.GetOne.Response();
+            Response response = JsonConvert.DeserializeObject<Response>(await ApiCore.SendGetRequest($"/server_types/{id}")) ?? new Response();
 
             // Return
             return response.server_type;

@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace HetznerCloudApi.Objects.ServerType
+namespace HetznerDotNet.Objects.ServerType
 {
     public class Price
     {

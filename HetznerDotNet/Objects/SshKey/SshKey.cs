@@ -1,6 +1,7 @@
-﻿using Newtonsoft.Json;
+﻿using System;
+using Newtonsoft.Json;
 
-namespace HetznerCloudApi.Objects.SshKey
+namespace HetznerDotNet.Objects.SshKey
 {
     public class SshKey
     {
@@ -11,7 +12,7 @@ namespace HetznerCloudApi.Objects.SshKey
         public string? Fingerprint { get; set; }
 
         [JsonProperty("id")]
-        public long? Id { get; set; }
+        public long Id { get; set; }
 
         [JsonProperty("name")]
         public string? Name { get; set; }

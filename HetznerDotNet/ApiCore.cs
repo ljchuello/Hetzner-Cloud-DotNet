@@ -1,10 +1,13 @@
-﻿using System.Net;
+﻿using System;
+using System.Net;
+using System.Net.Http;
 using System.Net.Http.Headers;
-using HetznerCloudApi.Objects.Universal;
+using System.Threading.Tasks;
+using HetznerDotNet.Objects.Universal;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace HetznerCloudApi
+namespace HetznerDotNet
 {
     public class ApiCore
     {

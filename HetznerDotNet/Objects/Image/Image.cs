@@ -1,6 +1,7 @@
-﻿using Newtonsoft.Json;
+﻿using System;
+using Newtonsoft.Json;
 
-namespace HetznerCloudApi.Objects.Image
+namespace HetznerDotNet.Objects.Image
 {
     public class Image
     {

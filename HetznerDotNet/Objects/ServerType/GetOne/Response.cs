@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace HetznerCloudApi.Objects.ServerType.GetOne
+namespace HetznerDotNet.Objects.ServerType.GetOne
 {
     public class Response
     {

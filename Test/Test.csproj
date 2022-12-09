@@ -11,4 +11,8 @@
     <PackageReference Include="SshKeyGenerator" Version="1.1.50" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\HetznerDotNet\HetznerDotNet.csproj" />
+  </ItemGroup>
+
 </Project>

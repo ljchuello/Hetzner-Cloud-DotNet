@@ -1,8 +1,11 @@
-﻿using Newtonsoft.Json;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using HetznerDotNet.Objects.Location.GetOne;
+using Newtonsoft.Json;
 
-namespace HetznerCloudApi.Api
+namespace HetznerDotNet.Api
 {
-    public class Location : Objects.Location.Location
+    public class Location : HetznerDotNet.Objects.Location.Location
     {
         /// <summary>
         /// Get all locations
@@ -11,7 +14,7 @@ namespace HetznerCloudApi.Api
         public static async Task<List<Location>> Get()
         {
             // Get list
-            Objects.Location.Get.Response response = JsonConvert.DeserializeObject<Objects.Location.Get.Response>(await ApiCore.SendGetRequest("/locations")) ?? new Objects.Location.Get.Response();
+            HetznerDotNet.Objects.Location.Get.Response response = JsonConvert.DeserializeObject<HetznerDotNet.Objects.Location.Get.Response>(await ApiCore.SendGetRequest("/locations")) ?? new HetznerDotNet.Objects.Location.Get.Response();
             
             // Run
             List<Location> locations = new List<Location>();
@@ -31,7 +34,7 @@ namespace HetznerCloudApi.Api
         public static async Task<Location> Get(long id)
         {
             // Get list
-            Objects.Location.GetOne.Response response = JsonConvert.DeserializeObject<Objects.Location.GetOne.Response>(await ApiCore.SendGetRequest($"/locations/{id}")) ?? new Objects.Location.GetOne.Response();
+            Response response = JsonConvert.DeserializeObject<Response>(await ApiCore.SendGetRequest($"/locations/{id}")) ?? new Response();
 
             // Return
             return response.location;

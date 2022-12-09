@@ -1,9 +1,12 @@
-﻿using Newtonsoft.Json;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using HetznerDotNet.Objects.SshKey.GetOne;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace HetznerCloudApi.Api
+namespace HetznerDotNet.Api
 {
-    public class SshKey : Objects.SshKey.SshKey
+    public class SshKey : HetznerDotNet.Objects.SshKey.SshKey
     {
         public static async Task<List<SshKey>> Get()
         {
@@ -15,7 +18,7 @@ namespace HetznerCloudApi.Api
                 page++;
 
                 // Get list
-                Objects.SshKey.Get.Response response = JsonConvert.DeserializeObject<Objects.SshKey.Get.Response>(await ApiCore.SendGetRequest($"/ssh_keys?page={page}&per_page=25")) ?? new Objects.SshKey.Get.Response();
+                HetznerDotNet.Objects.SshKey.Get.Response response = JsonConvert.DeserializeObject<HetznerDotNet.Objects.SshKey.Get.Response>(await ApiCore.SendGetRequest($"/ssh_keys?page={page}&per_page=25")) ?? new HetznerDotNet.Objects.SshKey.Get.Response();
 
                 // Run
                 foreach (SshKey row in response.SshKeys)
@@ -35,7 +38,7 @@ namespace HetznerCloudApi.Api
         public static async Task<SshKey> Get(long id)
         {
             // Get list
-            Objects.SshKey.GetOne.Response response = JsonConvert.DeserializeObject<Objects.SshKey.GetOne.Response>(await ApiCore.SendGetRequest($"/ssh_keys/{id}")) ?? new Objects.SshKey.GetOne.Response();
+            Response response = JsonConvert.DeserializeObject<Response>(await ApiCore.SendGetRequest($"/ssh_keys/{id}")) ?? new Response();
 
             // Return
             return response.SshKey;
