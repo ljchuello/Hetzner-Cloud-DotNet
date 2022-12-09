@@ -55,6 +55,8 @@ namespace Test
                 // PlacementGroup
                 List<HetznerDotNet.Api.PlacementGroup> listPlacementGroup = await HetznerDotNet.Api.PlacementGroup.Get();
                 HetznerDotNet.Api.PlacementGroup placementGroup = await HetznerDotNet.Api.PlacementGroup.Get(listPlacementGroup[0].Id);
+                placementGroup.Name = $"TEST - {Guid.NewGuid()}";
+                HetznerDotNet.Api.PlacementGroup placementGroupUpdate = await HetznerDotNet.Api.PlacementGroup.Update(placementGroup);
             }
             catch (Exception ex)
             {

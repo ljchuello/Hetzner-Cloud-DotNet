@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -40,6 +41,19 @@ namespace HetznerDotNet.Api
 
             // Return
             return response.PlacementGroup;
+        }
+
+        public static async Task<PlacementGroup> Update(PlacementGroup placementGroup)
+        {
+            // Preparing raw
+            string rawSsh = $"{{\"name\":\"{placementGroup.Name}\"}}";
+
+            // Send post
+            string jsonResponse = await ApiCore.SendPutRequest($"/placement_groups/{placementGroup.Id}", rawSsh);
+
+            // Return
+            JObject result = JObject.Parse(jsonResponse);
+            return JsonConvert.DeserializeObject<PlacementGroup>($"{result["placement_group"]}") ?? new PlacementGroup();
         }
     }
 }
