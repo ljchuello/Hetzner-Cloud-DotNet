@@ -7,9 +7,9 @@ namespace HetznerDotNet.Objects.Image.Get
     public class Response
     {
         [JsonProperty("images")]
-        public List<Api.Image>? images { get; set; }
+        public List<Api.Image>? Images { get; set; }
 
         [JsonProperty("meta")]
-        public Meta? meta { get; set; }
+        public Meta? Meta { get; set; }
     }
 }

@@ -7,63 +7,63 @@ namespace HetznerDotNet.Objects.Network
     public class Network
     {
         [JsonProperty("created")]
-        public DateTime created { get; set; }
+        public DateTime Created { get; set; }
 
         [JsonProperty("id")]
-        public int id { get; set; }
+        public long Id { get; set; }
 
         [JsonProperty("ip_range")]
-        public string ip_range { get; set; }
+        public string IpRange { get; set; }
 
         //[JsonProperty("labels")]
         //public Labels labels { get; set; }
 
         [JsonProperty("load_balancers")]
-        public List<int> load_balancers { get; set; }
+        public List<long> LoadBalancers { get; set; }
 
         [JsonProperty("name")]
-        public string name { get; set; }
+        public string Name { get; set; }
 
         [JsonProperty("protection")]
-        public Protection protection { get; set; }
+        public Protection Protection { get; set; }
 
         [JsonProperty("routes")]
-        public List<Route> routes { get; set; }
+        public List<Route> Routes { get; set; }
 
         [JsonProperty("servers")]
-        public List<int> servers { get; set; }
+        public List<int> Servers { get; set; }
 
         [JsonProperty("subnets")]
-        public List<Subnet> subnets { get; set; }
+        public List<Subnet> Subnets { get; set; }
     }
 
     public class Protection
     {
         [JsonProperty("delete")]
-        public bool delete { get; set; }
+        public bool Delete { get; set; }
     }
 
     public class Route
     {
         [JsonProperty("destination")]
-        public string destination { get; set; }
+        public string Destination { get; set; }
 
         [JsonProperty("gateway")]
-        public string gateway { get; set; }
+        public string Gateway { get; set; }
     }
 
     public class Subnet
     {
         [JsonProperty("gateway")]
-        public string gateway { get; set; }
+        public string Gateway { get; set; }
 
         [JsonProperty("ip_range")]
-        public string ip_range { get; set; }
+        public string IpRange { get; set; }
 
         [JsonProperty("network_zone")]
-        public string network_zone { get; set; }
+        public string NetworkZone { get; set; }
 
         [JsonProperty("type")]
-        public string type { get; set; }
+        public string Type { get; set; }
     }
 }

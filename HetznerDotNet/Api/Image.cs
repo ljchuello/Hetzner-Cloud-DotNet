@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 
 namespace HetznerDotNet.Api
 {
-    public class Image : HetznerDotNet.Objects.Image.Image
+    public class Image : Objects.Image.Image
     {
         public static async Task<List<Image>> Get()
         {
@@ -17,16 +17,16 @@ namespace HetznerDotNet.Api
                 page++;
 
                 // Get list
-                HetznerDotNet.Objects.Image.Get.Response response = JsonConvert.DeserializeObject<HetznerDotNet.Objects.Image.Get.Response>(await ApiCore.SendGetRequest($"/images?page={page}&per_page=25")) ?? new HetznerDotNet.Objects.Image.Get.Response();
+                Objects.Image.Get.Response response = JsonConvert.DeserializeObject<Objects.Image.Get.Response>(await ApiCore.SendGetRequest($"/images?page={page}&per_page=25")) ?? new HetznerDotNet.Objects.Image.Get.Response();
 
                 // Run
-                foreach (Image row in response.images)
+                foreach (Image row in response.Images)
                 {
                     listImage.Add(row);
                 }
 
                 // Finish?
-                if (response.meta.Pagination.NextPage == null)
+                if (response.Meta.Pagination.NextPage == null)
                 {
                     // Yes, finish
                     return listImage;
@@ -40,7 +40,7 @@ namespace HetznerDotNet.Api
             Response response = JsonConvert.DeserializeObject<Response>(await ApiCore.SendGetRequest($"/images/{id}")) ?? new Response();
 
             // Return
-            return response.image;
+            return response.Image;
         }
     }
 }

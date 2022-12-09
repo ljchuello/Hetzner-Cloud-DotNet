@@ -5,6 +5,6 @@ namespace HetznerDotNet.Objects.Image.GetOne
     public class Response
     {
         [JsonProperty("image")]
-        public Api.Image? image { get; set; }
+        public Api.Image? Image { get; set; }
     }
 }

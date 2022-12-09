@@ -24,7 +24,7 @@
 
                 // Location
                 var locationList = await HetznerDotNet.Api.Location.Get();
-                var location = await HetznerDotNet.Api.Location.Get(locationList[0].id);
+                var location = await HetznerDotNet.Api.Location.Get(locationList[0].Id);
 
                 // SshKey
                 HetznerDotNet.Api.SshKey sshKeyAdd = await HetznerDotNet.Api.SshKey.Create($"TEST - {Guid.NewGuid()}", valor);
@@ -36,7 +36,7 @@
 
                 // Images
                 List<HetznerDotNet.Api.Image> listImage = await HetznerDotNet.Api.Image.Get();
-                HetznerDotNet.Api.Image image = await HetznerDotNet.Api.Image.Get(listImage[15].id);
+                HetznerDotNet.Api.Image image = await HetznerDotNet.Api.Image.Get(listImage[15].Id);
 
                 // ServerType
                 List<HetznerDotNet.Api.ServerType> listServerType = await HetznerDotNet.Api.ServerType.Get();
@@ -45,8 +45,8 @@
                 // Network
                 HetznerDotNet.Api.Network networkAdd = await HetznerDotNet.Api.Network.Create($"Prueba", "192.168.0.0/16");
                 List<HetznerDotNet.Api.Network> listNetwork = await HetznerDotNet.Api.Network.Get();
-                HetznerDotNet.Api.Network network = await HetznerDotNet.Api.Network.Get(networkAdd.id);
-                listNetwork[0].name = $"TEST - EDIT - {Guid.NewGuid()}";
+                HetznerDotNet.Api.Network network = await HetznerDotNet.Api.Network.Get(networkAdd.Id);
+                listNetwork[0].Name = $"TEST - EDIT - {Guid.NewGuid()}";
                 HetznerDotNet.Api.Network networkUpdate = await HetznerDotNet.Api.Network.Update(listNetwork[0]);
                 await HetznerDotNet.Api.Network.SubnetCreate(network, "192.168.0.0/16", "eu-central");
                 await HetznerDotNet.Api.Network.SubnetDelete(network, "192.168.0.0/16");

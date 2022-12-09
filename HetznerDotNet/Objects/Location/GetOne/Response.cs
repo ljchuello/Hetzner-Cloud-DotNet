@@ -5,6 +5,6 @@ namespace HetznerDotNet.Objects.Location.GetOne
     public class Response
     {
         [JsonProperty("location")]
-        public Api.Location? location { get; set; }
+        public Api.Location? Location { get; set; }
     }
 }

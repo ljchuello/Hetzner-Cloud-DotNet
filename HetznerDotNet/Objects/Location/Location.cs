@@ -5,27 +5,27 @@ namespace HetznerDotNet.Objects.Location
     public class Location
     {
         [JsonProperty("id")]
-        public int id { get; set; }
+        public long Id { get; set; }
 
         [JsonProperty("city")]
-        public string? city { get; set; }
+        public string? City { get; set; }
 
         [JsonProperty("country")]
-        public string? country { get; set; }
+        public string? Country { get; set; }
 
         [JsonProperty("description")]
-        public string? description { get; set; }
+        public string? Description { get; set; }
 
         [JsonProperty("latitude")]
-        public double? latitude { get; set; }
+        public double? Latitude { get; set; }
 
         [JsonProperty("longitude")]
-        public double? longitude { get; set; }
+        public double? Longitude { get; set; }
 
         [JsonProperty("name")]
-        public string? name { get; set; }
+        public string? Name { get; set; }
 
         [JsonProperty("network_zone")]
-        public string? network_zone { get; set; }
+        public string? NetworkZone { get; set; }
     }
 }

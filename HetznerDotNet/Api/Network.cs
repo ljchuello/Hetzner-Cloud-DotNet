@@ -22,16 +22,16 @@ namespace HetznerDotNet.Api
                 page++;
 
                 // Get list
-                HetznerDotNet.Objects.Network.Get.Response response = JsonConvert.DeserializeObject<HetznerDotNet.Objects.Network.Get.Response>(await ApiCore.SendGetRequest($"/networks?page={page}&per_page=25")) ?? new HetznerDotNet.Objects.Network.Get.Response();
+                Objects.Network.Get.Response response = JsonConvert.DeserializeObject<Objects.Network.Get.Response>(await ApiCore.SendGetRequest($"/networks?page={page}&per_page=25")) ?? new HetznerDotNet.Objects.Network.Get.Response();
 
                 // Run
-                foreach (Network row in response.networks)
+                foreach (Network row in response.Networks)
                 {
                     list.Add(row);
                 }
 
                 // Finish?
-                if (response.meta.Pagination.NextPage == null)
+                if (response.Meta.Pagination.NextPage == null)
                 {
                     // Yes, finish
                     return list;
@@ -50,7 +50,7 @@ namespace HetznerDotNet.Api
             Response response = JsonConvert.DeserializeObject<Response>(await ApiCore.SendGetRequest($"/networks/{id}")) ?? new Response();
 
             // Return
-            return response.network;
+            return response.Network;
         }
 
         /// <summary>
@@ -80,10 +80,10 @@ namespace HetznerDotNet.Api
         public static async Task<Network> Update(Network network)
         {
             // Preparing raw
-            string rawSsh = $"{{\"name\":\"{network.name}\"}}";
+            string rawSsh = $"{{\"name\":\"{network.Name}\"}}";
 
             // Send post
-            string jsonResponse = await ApiCore.SendPutRequest($"/networks/{network.id}", rawSsh);
+            string jsonResponse = await ApiCore.SendPutRequest($"/networks/{network.Id}", rawSsh);
 
             // Return
             JObject result = JObject.Parse(jsonResponse);
@@ -98,7 +98,7 @@ namespace HetznerDotNet.Api
         public static async Task Delete(Network network)
         {
             // Send post
-            await ApiCore.SendDeleteRequest($"/networks/{network.id}");
+            await ApiCore.SendDeleteRequest($"/networks/{network.Id}");
         }
 
         /// <summary>
@@ -114,7 +114,7 @@ namespace HetznerDotNet.Api
             string raw = $"{{\"network_zone\": \"{networkZone}\",\"ip_range\": \"{ipRange}\",\"type\": \"cloud\"}}";
 
             // Send post
-            await ApiCore.SendPostRequest($"/networks/{network.id}/actions/add_subnet", raw);
+            await ApiCore.SendPostRequest($"/networks/{network.Id}/actions/add_subnet", raw);
         }
 
         /// <summary>
@@ -129,7 +129,7 @@ namespace HetznerDotNet.Api
             string raw = $"{{\"ip_range\":\"{ipRange}\"}}";
 
             // Send post
-            await ApiCore.SendPostRequest($"/networks/{network.id}/actions/delete_subnet", raw);
+            await ApiCore.SendPostRequest($"/networks/{network.Id}/actions/delete_subnet", raw);
         }
     }
 }

@@ -7,9 +7,9 @@ namespace HetznerDotNet.Objects.Network.Get
     public class Response
     {
         [JsonProperty("meta")]
-        public Meta? meta { get; set; }
+        public Meta? Meta { get; set; }
 
         [JsonProperty("networks")]
-        public List<Api.Network>? networks { get; set; }
+        public List<Api.Network>? Networks { get; set; }
     }
 }

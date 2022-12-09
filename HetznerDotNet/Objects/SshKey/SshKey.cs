@@ -12,7 +12,7 @@ namespace HetznerDotNet.Objects.SshKey
         public string Fingerprint { get; set; }
 
         [JsonProperty("id")]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         //[JsonProperty("labels")]
         //public Labels labels { get; set; }

@@ -18,7 +18,7 @@ namespace HetznerDotNet.Api
             
             // Run
             List<Location> locations = new List<Location>();
-            foreach (Location row in response.locations)
+            foreach (Location row in response.Locations)
             {
                 locations.Add(row);
             }
@@ -37,7 +37,7 @@ namespace HetznerDotNet.Api
             Response response = JsonConvert.DeserializeObject<Response>(await ApiCore.SendGetRequest($"/locations/{id}")) ?? new Response();
 
             // Return
-            return response.location;
+            return response.Location;
         }
     }
 }
