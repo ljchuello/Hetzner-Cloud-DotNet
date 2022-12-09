@@ -1,5 +1,5 @@
-﻿using HetznerDotNet;
-using Newtonsoft.Json;
+﻿using System.Security.Cryptography.X509Certificates;
+using HetznerDotNet;
 
 namespace Test
 {
@@ -20,10 +20,11 @@ namespace Test
                 string valor = sshKeyGenerator.ToRfcPublicKey();
 
                 // Token
-                HetznerDotNet.ApiCore.ApiToken = await File.ReadAllTextAsync("D:\\ApiKey.txt");
+                ApiCore.ApiToken = await File.ReadAllTextAsync("D:\\ApiKey.txt");
 
                 //// Location
-                //var locationList = await HetznerDotNet.Api.Location.Get();
+                var locationList = await HetznerDotNet.Api.Location.Get();
+                string loc = String.Join(",", locationList.Select(x => x.Name));
                 //var location = await HetznerDotNet.Api.Location.Get(locationList[0].Id);
 
                 //// SshKey
