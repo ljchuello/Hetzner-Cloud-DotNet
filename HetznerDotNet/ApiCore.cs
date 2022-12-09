@@ -44,7 +44,7 @@ namespace HetznerDotNet
             {
                 JObject result = JObject.Parse(json);
                 Error error = JsonConvert.DeserializeObject<Error>($"{result["error"]}") ?? new Error();
-                throw new Exception($"{error.message}");
+                throw new Exception($"{error.Message}");
             }
 
             return json;
@@ -76,7 +76,7 @@ namespace HetznerDotNet
             {
                 JObject result = JObject.Parse(json);
                 Error error = JsonConvert.DeserializeObject<Error>($"{result["error"]}") ?? new Error();
-                throw new Exception($"{error.message}");
+                throw new Exception($"{error.Message}");
             }
 
             return json;
@@ -108,7 +108,7 @@ namespace HetznerDotNet
             {
                 JObject result = JObject.Parse(json);
                 Error error = JsonConvert.DeserializeObject<Error>($"{result["error"]}") ?? new Error();
-                throw new Exception($"{error.message}");
+                throw new Exception($"{error.Message}");
             }
 
             return json;
@@ -132,7 +132,7 @@ namespace HetznerDotNet
                 string json = await httpResponseMessage.Content.ReadAsStringAsync();
                 JObject result = JObject.Parse(json);
                 Error error = JsonConvert.DeserializeObject<Error>($"{result["error"]}") ?? new Error();
-                throw new Exception($"{error.message}");
+                throw new Exception($"{error.Message}");
             }
         }
     }

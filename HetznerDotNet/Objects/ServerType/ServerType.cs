@@ -63,6 +63,6 @@ namespace HetznerDotNet.Objects.ServerType
         public string? storage_type { get; set; }
 
         [JsonProperty("cpu_type")]
-        public string? cpu_type { get; set; }
+        public string? CpuType { get; set; }
     }
 }

@@ -26,7 +26,7 @@ namespace HetznerDotNet.Api
                 }
 
                 // Finish?
-                if (response.meta.pagination.next_page == null)
+                if (response.meta.Pagination.NextPage == null)
                 {
                     // Yes, finish
                     return listImage;

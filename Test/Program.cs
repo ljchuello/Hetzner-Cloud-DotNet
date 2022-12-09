@@ -25,9 +25,9 @@
 
                 // SshKey
                 HetznerDotNet.Api.SshKey sshKeyAdd = await HetznerDotNet.Api.SshKey.Create($"TEST - {Guid.NewGuid()}", valor);
-                sshKeyAdd.name = $"Test - {Guid.NewGuid()}";
+                sshKeyAdd.Name = $"Test - {Guid.NewGuid()}";
                 HetznerDotNet.Api.SshKey sshkeUpdate = await HetznerDotNet.Api.SshKey.Update(sshKeyAdd);
-                HetznerDotNet.Api.SshKey sshKeyGetOne = await HetznerDotNet.Api.SshKey.Get(sshKeyAdd.id);
+                HetznerDotNet.Api.SshKey sshKeyGetOne = await HetznerDotNet.Api.SshKey.Get(sshKeyAdd.Id);
                 List<HetznerDotNet.Api.SshKey> sshKeyGetAll = await HetznerDotNet.Api.SshKey.Get();
                 await HetznerDotNet.Api.SshKey.Delete(sshKeyAdd);
 

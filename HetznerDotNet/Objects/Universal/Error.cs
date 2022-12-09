@@ -7,9 +7,9 @@ namespace HetznerDotNet.Objects.Universal
     public class Error
     {
         [JsonProperty("code")]
-        public string? code { get; set; }
+        public string? Code { get; set; }
 
         [JsonProperty("message")]
-        public string? message { get; set; }
+        public string? Message { get; set; }
     }
 }

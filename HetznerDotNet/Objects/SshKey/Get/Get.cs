@@ -7,9 +7,9 @@ namespace HetznerDotNet.Objects.SshKey.Get
     public class Response
     {
         [JsonProperty("meta")]
-        public Meta? meta { get; set; }
+        public Meta? Meta { get; set; }
 
         [JsonProperty("ssh_keys")]
-        public List<Api.SshKey>? sshKeys { get; set; }
+        public List<Api.SshKey>? SshKeys { get; set; }
     }
 }
