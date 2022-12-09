@@ -8,7 +8,7 @@ namespace HetznerCloudApi.Objects.Image
         public object? bound_to { get; set; }
 
         [JsonProperty("created")]
-        public DateTimeOffset? created { get; set; }
+        public DateTime? created { get; set; }
 
         [JsonProperty("created_from")]
         public CreatedFrom? created_from { get; set; }
@@ -17,7 +17,7 @@ namespace HetznerCloudApi.Objects.Image
         public object? deleted { get; set; }
 
         [JsonProperty("deprecated")]
-        public DateTimeOffset? deprecated { get; set; }
+        public DateTime? deprecated { get; set; }
 
         [JsonProperty("description")]
         public string? description { get; set; }

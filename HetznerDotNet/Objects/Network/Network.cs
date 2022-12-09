@@ -5,7 +5,7 @@ namespace HetznerCloudApi.Objects.Network
     public class Network
     {
         [JsonProperty("created")]
-        public DateTimeOffset? created { get; set; }
+        public DateTime? created { get; set; }
 
         [JsonProperty("id")]
         public long id { get; set; }

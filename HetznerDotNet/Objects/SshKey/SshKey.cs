@@ -5,7 +5,7 @@ namespace HetznerCloudApi.Objects.SshKey
     public class SshKey
     {
         [JsonProperty("created")]
-        public DateTimeOffset? Created { get; set; }
+        public DateTime? Created { get; set; }
 
         [JsonProperty("fingerprint")]
         public string? Fingerprint { get; set; }

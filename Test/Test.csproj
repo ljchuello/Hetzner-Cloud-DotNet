@@ -7,4 +7,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="SshKeyGenerator" Version="1.1.50" />
+  </ItemGroup>
+
 </Project>
