@@ -18,6 +18,9 @@
 
                 // Token
                 HetznerDotNet.ApiCore.ApiToken = await File.ReadAllTextAsync("D:\\ApiKey.txt");
+                Console.WriteLine("El rpycto sigue andando =)");
+                Console.Read();
+                Environment.Exit(0);
 
                 // Location
                 var locationList = await HetznerDotNet.Api.Location.Get();
@@ -37,7 +40,7 @@
 
                 // ServerType
                 List<HetznerDotNet.Api.ServerType> listServerType = await HetznerDotNet.Api.ServerType.Get();
-                HetznerDotNet.Api.ServerType serverType = await HetznerDotNet.Api.ServerType.Get(listServerType[0].id);
+                HetznerDotNet.Api.ServerType serverType = await HetznerDotNet.Api.ServerType.Get(listServerType[0].Id);
 
                 // Network
                 HetznerDotNet.Api.Network networkAdd = await HetznerDotNet.Api.Network.Create($"Prueba", "192.168.0.0/16");

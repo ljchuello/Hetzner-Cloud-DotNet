@@ -7,9 +7,9 @@ namespace HetznerDotNet.Objects.ServerType.Get
     public class Response
     {
         [JsonProperty("server_types")]
-        public List<Api.ServerType>? server_types { get; set; }
+        public List<Api.ServerType>? ServerTypes { get; set; }
 
         [JsonProperty("meta")]
-        public Meta? meta { get; set; }
+        public Meta? Meta { get; set; }
     }
 }

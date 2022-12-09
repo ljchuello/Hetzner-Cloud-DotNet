@@ -20,13 +20,13 @@ namespace HetznerDotNet.Api
                 HetznerDotNet.Objects.ServerType.Get.Response response = JsonConvert.DeserializeObject<HetznerDotNet.Objects.ServerType.Get.Response>(await ApiCore.SendGetRequest($"/server_types?page={page}&per_page=25")) ?? new HetznerDotNet.Objects.ServerType.Get.Response();
 
                 // Run
-                foreach (ServerType row in response.server_types)
+                foreach (ServerType row in response.ServerTypes)
                 {
                     listServerType.Add(row);
                 }
 
                 // Finish?
-                if (response.meta.Pagination.NextPage == null)
+                if (response.Meta.Pagination.NextPage == null)
                 {
                     // Yes, finish
                     return listServerType;
@@ -40,7 +40,7 @@ namespace HetznerDotNet.Api
             Response response = JsonConvert.DeserializeObject<Response>(await ApiCore.SendGetRequest($"/server_types/{id}")) ?? new Response();
 
             // Return
-            return response.server_type;
+            return response.ServerType;
         }
     }
 }
