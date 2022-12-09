@@ -10,7 +10,7 @@ namespace HetznerDotNet.Api
         public static async Task<List<ServerType>> Get()
         {
             List<ServerType> listServerType = new List<ServerType>();
-            int page = 0;
+            long page = 0;
             while (true)
             {
                 // Nex

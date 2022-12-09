@@ -6,19 +6,19 @@ using Newtonsoft.Json.Linq;
 
 namespace HetznerDotNet.Api
 {
-    public class SshKey : HetznerDotNet.Objects.SshKey.SshKey
+    public class SshKey : Objects.SshKey.SshKey
     {
         public static async Task<List<SshKey>> Get()
         {
             List<SshKey> listSshKeys = new List<SshKey>();
-            int page = 0;
+            long page = 0;
             while (true)
             {
                 // Nex
                 page++;
 
                 // Get list
-                HetznerDotNet.Objects.SshKey.Get.Response response = JsonConvert.DeserializeObject<HetznerDotNet.Objects.SshKey.Get.Response>(await ApiCore.SendGetRequest($"/ssh_keys?page={page}&per_page=25")) ?? new HetznerDotNet.Objects.SshKey.Get.Response();
+                Objects.SshKey.Get.Response response = JsonConvert.DeserializeObject<Objects.SshKey.Get.Response>(await ApiCore.SendGetRequest($"/ssh_keys?page={page}&per_page=25")) ?? new HetznerDotNet.Objects.SshKey.Get.Response();
 
                 // Run
                 foreach (SshKey row in response.SshKeys)

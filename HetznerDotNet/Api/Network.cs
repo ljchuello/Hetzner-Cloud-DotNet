@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using HetznerDotNet.Objects.Network.GetOne;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -15,7 +14,7 @@ namespace HetznerDotNet.Api
         public static async Task<List<Network>> Get()
         {
             List<Network> list = new List<Network>();
-            int page = 0;
+            long page = 0;
             while (true)
             {
                 // Nex
@@ -47,7 +46,7 @@ namespace HetznerDotNet.Api
         public static async Task<Network> Get(long id)
         {
             // Get list
-            Response response = JsonConvert.DeserializeObject<Response>(await ApiCore.SendGetRequest($"/networks/{id}")) ?? new Response();
+            Objects.Network.GetOne.Response response = JsonConvert.DeserializeObject<Objects.Network.GetOne.Response>(await ApiCore.SendGetRequest($"/networks/{id}")) ?? new Objects.Network.GetOne.Response();
 
             // Return
             return response.Network;

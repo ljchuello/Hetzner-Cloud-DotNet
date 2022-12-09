@@ -10,7 +10,7 @@ namespace HetznerDotNet.Api
         public static async Task<List<Image>> Get()
         {
             List<Image> listImage = new List<Image>();
-            int page = 0;
+            long page = 0;
             while (true)
             {
                 // Nex
