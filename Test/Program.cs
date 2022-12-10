@@ -1,4 +1,5 @@
-﻿using System.Security.Cryptography.X509Certificates;
+﻿using System.Diagnostics;
+using System.Security.Cryptography.X509Certificates;
 using HetznerDotNet;
 
 namespace Test
@@ -23,8 +24,8 @@ namespace Test
                 ApiCore.ApiToken = await File.ReadAllTextAsync("D:\\ApiKey.txt");
 
                 //// Location
-                var locationList = await HetznerDotNet.Api.Location.Get();
-                string loc = String.Join(",", locationList.Select(x => x.Name));
+                //var locationList = await HetznerDotNet.Api.Location.Get();
+                //string loc = String.Join(",", locationList.Select(x => x.Name));
                 //var location = await HetznerDotNet.Api.Location.Get(locationList[0].Id);
 
                 //// SshKey
