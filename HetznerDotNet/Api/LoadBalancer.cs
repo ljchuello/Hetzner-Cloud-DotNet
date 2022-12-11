@@ -59,10 +59,10 @@ namespace HetznerDotNet.Api
         public static async Task<LoadBalancer> Update(LoadBalancer loadBalancer)
         {
             // Preparing raw
-            string rawSsh = $"{{\"name\":\"{loadBalancer.Name}\"}}";
+            string raw = $"{{\"name\":\"{loadBalancer.Name}\"}}";
 
             // Send post
-            string jsonResponse = await ApiCore.SendPutRequest($"/load_balancers/{loadBalancer.Id}", rawSsh);
+            string jsonResponse = await ApiCore.SendPutRequest($"/load_balancers/{loadBalancer.Id}", raw);
 
             // Return
             JObject result = JObject.Parse(jsonResponse);
@@ -73,6 +73,24 @@ namespace HetznerDotNet.Api
         {
             // Send post
             await ApiCore.SendDeleteRequest($"/load_balancers/{loadBalancer.Id}");
+        }
+
+        public static async Task AttachToNetwork(LoadBalancer loadBalancer, long networkId, string privateIp)
+        {
+            // Preparing raw
+            string raw = $"{{\"network\":{networkId},\"ip\":\"{privateIp}\"}}";
+
+            // Send post
+            await ApiCore.SendPostRequest($"/load_balancers/{loadBalancer.Id}/actions/attach_to_network", raw);
+        }
+
+        public static async Task DetachFromNetwork(LoadBalancer loadBalancer, long networkId)
+        {
+            // Preparing raw
+            string raw = $"{{\"network\":{networkId}}}";
+
+            // Send post
+            await ApiCore.SendPostRequest($"/load_balancers/{loadBalancer.Id}/actions/detach_from_network", raw);
         }
     }
 }

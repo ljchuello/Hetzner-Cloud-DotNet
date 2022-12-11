@@ -59,10 +59,10 @@ namespace HetznerDotNet.Api
         public static async Task<PlacementGroup> Update(PlacementGroup placementGroup)
         {
             // Preparing raw
-            string rawSsh = $"{{\"name\":\"{placementGroup.Name}\"}}";
+            string raw = $"{{\"name\":\"{placementGroup.Name}\"}}";
 
             // Send post
-            string jsonResponse = await ApiCore.SendPutRequest($"/placement_groups/{placementGroup.Id}", rawSsh);
+            string jsonResponse = await ApiCore.SendPutRequest($"/placement_groups/{placementGroup.Id}", raw);
 
             // Return
             JObject result = JObject.Parse(jsonResponse);

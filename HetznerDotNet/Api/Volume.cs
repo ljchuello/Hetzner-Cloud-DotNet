@@ -81,10 +81,10 @@ namespace HetznerDotNet.Api
         public static async Task<Volume> Update(Volume volume)
         {
             // Preparing raw
-            string rawSsh = $"{{\"name\":\"{volume.Name}\"}}";
+            string raw = $"{{\"name\":\"{volume.Name}\"}}";
 
             // Send post
-            string jsonResponse = await ApiCore.SendPutRequest($"/volumes/{volume.Id}", rawSsh);
+            string jsonResponse = await ApiCore.SendPutRequest($"/volumes/{volume.Id}", raw);
 
             // Return
             JObject result = JObject.Parse(jsonResponse);

@@ -71,11 +71,13 @@ namespace Test
                 //await HetznerDotNet.Api.Volume.Delete(volumeCreate);
 
                 // Load Balancer
-                HetznerDotNet.Api.LoadBalancer loadBalancerAdd = await HetznerDotNet.Api.LoadBalancer.Create("xD", 3, 1, eLoadBalancerAlgorithm.round_robin);
+                HetznerDotNet.Api.LoadBalancer loadBalancerAdd = await HetznerDotNet.Api.LoadBalancer.Create("xD", 4, 1, eLoadBalancerAlgorithm.round_robin);
                 List<HetznerDotNet.Api.LoadBalancer> listLoadBalancer = await HetznerDotNet.Api.LoadBalancer.Get();
                 HetznerDotNet.Api.LoadBalancer loadBalancer = await HetznerDotNet.Api.LoadBalancer.Get(listLoadBalancer[0].Id);
                 loadBalancer.Name = "Putisimo";
                 loadBalancer = await HetznerDotNet.Api.LoadBalancer.Update(loadBalancer);
+                await HetznerDotNet.Api.LoadBalancer.AttachToNetwork(loadBalancer, 2291088, "192.168.5.55");
+                await HetznerDotNet.Api.LoadBalancer.DetachFromNetwork(loadBalancer, 2291088);
                 await HetznerDotNet.Api.LoadBalancer.Delete(loadBalancer);
             }
             catch (Exception ex)

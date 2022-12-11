@@ -14,7 +14,7 @@ namespace HetznerDotNet.Api
         public static async Task<List<Location>> Get()
         {
             // Get list
-            HetznerDotNet.Objects.Location.Get.Response response = JsonConvert.DeserializeObject<HetznerDotNet.Objects.Location.Get.Response>(await ApiCore.SendGetRequest("/locations")) ?? new HetznerDotNet.Objects.Location.Get.Response();
+            Objects.Location.Get.Response response = JsonConvert.DeserializeObject<Objects.Location.Get.Response>(await ApiCore.SendGetRequest("/locations")) ?? new Objects.Location.Get.Response();
             
             // Run
             List<Location> locations = new List<Location>();

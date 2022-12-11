@@ -47,10 +47,10 @@ namespace HetznerDotNet.Api
         public static async Task<SshKey> Create(string sshName, string sshPublicKey)
         {
             // Preparing raw
-            string rawSsh = $"{{\"name\":\"{sshName}\",\"public_key\":\"{sshPublicKey}\"}}";
+            string raw = $"{{\"name\":\"{sshName}\",\"public_key\":\"{sshPublicKey}\"}}";
 
             // Send post
-            string jsonResponse = await ApiCore.SendPostRequest("/ssh_keys", rawSsh);
+            string jsonResponse = await ApiCore.SendPostRequest("/ssh_keys", raw);
 
             // Return
             JObject result = JObject.Parse(jsonResponse);
@@ -60,10 +60,10 @@ namespace HetznerDotNet.Api
         public static async Task<SshKey> Update(SshKey sshKey)
         {
             // Preparing raw
-            string rawSsh = $"{{\"name\":\"{sshKey.Name}\"}}";
+            string raw = $"{{\"name\":\"{sshKey.Name}\"}}";
 
             // Send post
-            string jsonResponse = await ApiCore.SendPutRequest($"/ssh_keys/{sshKey.Id}", rawSsh);
+            string jsonResponse = await ApiCore.SendPutRequest($"/ssh_keys/{sshKey.Id}", raw);
             
             // Return
             JObject result = JObject.Parse(jsonResponse);

@@ -79,10 +79,10 @@ namespace HetznerDotNet.Api
         public static async Task<Network> Update(Network network)
         {
             // Preparing raw
-            string rawSsh = $"{{\"name\":\"{network.Name}\"}}";
+            string raw = $"{{\"name\":\"{network.Name}\"}}";
 
             // Send post
-            string jsonResponse = await ApiCore.SendPutRequest($"/networks/{network.Id}", rawSsh);
+            string jsonResponse = await ApiCore.SendPutRequest($"/networks/{network.Id}", raw);
 
             // Return
             JObject result = JObject.Parse(jsonResponse);
