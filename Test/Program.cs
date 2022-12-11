@@ -1,6 +1,6 @@
-﻿using System.Diagnostics;
-using System.Security.Cryptography.X509Certificates;
-using HetznerDotNet;
+﻿using HetznerDotNet;
+using HetznerDotNet.Enum;
+using Newtonsoft.Json;
 
 namespace Test
 {
@@ -69,6 +69,14 @@ namespace Test
                 //volumeCreate.Name = $"TEST-{Guid.NewGuid()}";
                 //HetznerDotNet.Api.Volume volumeEdit = await HetznerDotNet.Api.Volume.Update(volumeCreate);
                 //await HetznerDotNet.Api.Volume.Delete(volumeCreate);
+
+                // Load Balancer
+                HetznerDotNet.Api.LoadBalancer loadBalancerAdd = await HetznerDotNet.Api.LoadBalancer.Create("xD", 3, 1, eLoadBalancerAlgorithm.round_robin);
+                List<HetznerDotNet.Api.LoadBalancer> listLoadBalancer = await HetznerDotNet.Api.LoadBalancer.Get();
+                HetznerDotNet.Api.LoadBalancer loadBalancer = await HetznerDotNet.Api.LoadBalancer.Get(listLoadBalancer[0].Id);
+                loadBalancer.Name = "Putisimo";
+                loadBalancer = await HetznerDotNet.Api.LoadBalancer.Update(loadBalancer);
+                await HetznerDotNet.Api.LoadBalancer.Delete(loadBalancer);
             }
             catch (Exception ex)
             {
