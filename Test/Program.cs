@@ -95,10 +95,10 @@ namespace Test
                 //HetznerDotNet.Api.Server server = await HetznerDotNet.Api.Server.Get(listServer[0].Id);
                 //server.Name = "LaloLanda";
                 //server = await HetznerDotNet.Api.Server.Update(server);
-                await HetznerDotNet.Api.Server.Delete(new HetznerDotNet.Api.Server
-                {
-                    Id = 123456789
-                });
+                //await HetznerDotNet.Api.Server.Delete(new HetznerDotNet.Api.Server
+                //{
+                //    Id = 123456789
+                //});
             }
             catch (Exception ex)
             {
