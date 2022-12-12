@@ -90,6 +90,12 @@ namespace Test
                 //await HetznerDotNet.Api.LoadBalancer.Target.Add(listLoadBalancer[0], 26419059, usePrivateIp: true);
                 //await HetznerDotNet.Api.LoadBalancer.Target.Add(listLoadBalancer[0], 26419059);
                 //await HetznerDotNet.Api.LoadBalancer.Target.Remove(listLoadBalancer[0], 26419059);
+
+                // Server
+                List<HetznerDotNet.Api.Server> listServer = await HetznerDotNet.Api.Server.Get();
+                HetznerDotNet.Api.Server server = await HetznerDotNet.Api.Server.Get(listServer[0].Id);
+
+                string json = JsonConvert.SerializeObject(server, Formatting.Indented);
             }
             catch (Exception ex)
             {

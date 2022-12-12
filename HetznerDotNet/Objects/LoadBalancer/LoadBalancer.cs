@@ -136,7 +136,7 @@ namespace HetznerDotNet.Objects.LoadBalancer
         public string? Description { get; set; }
 
         [JsonProperty("id")]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         [JsonProperty("max_assigned_certificates")]
         public long? MaxAssignedCertificates { get; set; }
@@ -193,7 +193,7 @@ namespace HetznerDotNet.Objects.LoadBalancer
     public class Server
     {
         [JsonProperty("id")]
-        public int Id { get; set; }
+        public long Id { get; set; }
     }
 
     public class Service
