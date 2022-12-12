@@ -35,8 +35,8 @@ namespace Test
                 //await HetznerDotNet.Api.SshKey.Delete(sshKeyAdd);
 
                 //// Images
-                //List<HetznerDotNet.Api.Image> listImage = await HetznerDotNet.Api.Image.Get();
-                //HetznerDotNet.Api.Image image = await HetznerDotNet.Api.Image.Get(listImage[15].Id);
+                List<HetznerDotNet.Api.Image> listImage = await HetznerDotNet.Api.Image.Get();
+                HetznerDotNet.Api.Image image = await HetznerDotNet.Api.Image.Get(listImage[15].Id);
 
                 //// ServerType
                 //List<HetznerDotNet.Api.ServerType> listServerType = await HetznerDotNet.Api.ServerType.Get();
