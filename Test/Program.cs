@@ -1,5 +1,4 @@
 ﻿using HetznerDotNet;
-using Newtonsoft.Json;
 
 namespace Test
 {

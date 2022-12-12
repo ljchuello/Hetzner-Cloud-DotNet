@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 
 namespace HetznerDotNet.Api
 {
-    public class Location : HetznerDotNet.Objects.Location.Location
+    public class Location : Objects.Location.Location
     {
         /// <summary>
         /// Get all locations
