@@ -72,7 +72,7 @@ namespace Test
 
                 // Load Balancer
                 //HetznerDotNet.Api.LoadBalancer loadBalancerAdd = await HetznerDotNet.Api.LoadBalancer.Create("xD", 4, 1, eLoadBalancerAlgorithm.round_robin);
-                List<HetznerDotNet.Api.LoadBalancer> listLoadBalancer = await HetznerDotNet.Api.LoadBalancer.Get();
+                //List<HetznerDotNet.Api.LoadBalancer> listLoadBalancer = await HetznerDotNet.Api.LoadBalancer.Get();
                 //HetznerDotNet.Api.LoadBalancer loadBalancer = await HetznerDotNet.Api.LoadBalancer.Get(listLoadBalancer[0].Id);
                 //loadBalancer.Name = "Putisimo";
                 //loadBalancer = await HetznerDotNet.Api.LoadBalancer.Update(loadBalancer);
