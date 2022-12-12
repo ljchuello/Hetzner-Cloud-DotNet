@@ -137,7 +137,6 @@ namespace HetznerDotNet
                     JObject result = JObject.Parse(json);
                     Error error = JsonConvert.DeserializeObject<Error>($"{result["error"]}") ?? new Error();
                     throw new Exception($"{error.Message}");
-                    break;
             }
         }
     }
