@@ -89,6 +89,66 @@ namespace Test
                 //await HetznerDotNet.Api.LoadBalancer.Target.Add(listLoadBalancer[0], 26419059);
                 //await HetznerDotNet.Api.LoadBalancer.Target.Remove(listLoadBalancer[0], 26419059);
 
+                // Firewall
+                //HetznerDotNet.Api.Firewall firewall = await HetznerDotNet.Api.Firewall.Create("LJChuello");
+                List<HetznerDotNet.Api.Firewall> listFirewalls = await HetznerDotNet.Api.Firewall.Get();
+                await HetznerDotNet.Api.Firewall.Targe.Add(listFirewalls[0], 26437692);
+                await HetznerDotNet.Api.Firewall.Targe.Remove(listFirewalls[0], 26437692);
+                //firewall = await HetznerDotNet.Api.Firewall.Get(listFirewalls[0].Id);
+                //firewall.Name = $"TETS - {Guid.NewGuid()}";
+                //firewall = await HetznerDotNet.Api.Firewall.Update(firewall);
+
+                //List<HetznerDotNet.Api.Firewall.Rule> listRules = new List<HetznerDotNet.Api.Firewall.Rule>();
+                //// Enable port 80 / tcp / in / All traffic ipv4 and ipv6
+                //listRules.Add(new HetznerDotNet.Api.Firewall.Rule
+                //{
+                //    Direction = "in",
+                //    Protocol = "tcp",
+                //    Port = "80",
+                //    Description = "Port 80 for http",
+                //    SourceIps = new List<string>{"0.0.0.0/0", "::/0"}
+                //});
+                //// Enable port 443 / tcp / in / All traffic ipv4 and ipv6
+                //listRules.Add(new HetznerDotNet.Api.Firewall.Rule
+                //{
+                //    Direction = "in",
+                //    Protocol = "tcp",
+                //    Port = "443",
+                //    Description = "Port 443 for https",
+                //    SourceIps = new List<string> { "0.0.0.0/0", "::/0" }
+                //});
+                //// Enable port range 40000-50000 / tcp / in / only 8.8.8.8
+                //listRules.Add(new HetznerDotNet.Api.Firewall.Rule
+                //{
+                //    Direction = "in",
+                //    Protocol = "tcp",
+                //    Port = "40000-50000",
+                //    Description = "Example port range",
+                //    SourceIps = new List<string> { "8.8.8.8/32" }
+                //});
+                //// Enable port any / tcp / in / only 8.8.8.8
+                //listRules.Add(new HetznerDotNet.Api.Firewall.Rule
+                //{
+                //    Direction = "in",
+                //    Protocol = "tcp",
+                //    Port = "any",
+                //    Description = "All port open for my ip",
+                //    SourceIps = new List<string> { "8.8.8.8/32" }
+                //});
+                //// Enable port any / tcp / out / All traffic
+                //listRules.Add(new HetznerDotNet.Api.Firewall.Rule
+                //{
+                //    Direction = "out",
+                //    Protocol = "tcp",
+                //    Port = "any",
+                //    Description = "All port out open",
+                //    DestinationIps = new List<string> { "0.0.0.0/0", "::/0" }
+                //});
+                //// Send rules
+                //await HetznerDotNet.Api.Firewall.Rule.SetRules(listFirewalls[0], listRules);
+
+                //await HetznerDotNet.Api.Firewall.Delete(firewall);
+
                 // Server
                 //List<HetznerDotNet.Api.Server> listServer = await HetznerDotNet.Api.Server.Get();
                 //HetznerDotNet.Api.Server server = await HetznerDotNet.Api.Server.Get(listServer[0].Id);
