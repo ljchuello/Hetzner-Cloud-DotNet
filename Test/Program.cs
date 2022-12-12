@@ -91,9 +91,9 @@ namespace Test
 
                 // Firewall
                 //HetznerDotNet.Api.Firewall firewall = await HetznerDotNet.Api.Firewall.Create("LJChuello");
-                List<HetznerDotNet.Api.Firewall> listFirewalls = await HetznerDotNet.Api.Firewall.Get();
-                await HetznerDotNet.Api.Firewall.Targe.Add(listFirewalls[0], 26437692);
-                await HetznerDotNet.Api.Firewall.Targe.Remove(listFirewalls[0], 26437692);
+                //List<HetznerDotNet.Api.Firewall> listFirewalls = await HetznerDotNet.Api.Firewall.Get();
+                //await HetznerDotNet.Api.Firewall.Targe.Add(listFirewalls[0], 26437692);
+                //await HetznerDotNet.Api.Firewall.Targe.Remove(listFirewalls[0], 26437692);
                 //firewall = await HetznerDotNet.Api.Firewall.Get(listFirewalls[0].Id);
                 //firewall.Name = $"TETS - {Guid.NewGuid()}";
                 //firewall = await HetznerDotNet.Api.Firewall.Update(firewall);
@@ -150,6 +150,14 @@ namespace Test
                 //await HetznerDotNet.Api.Firewall.Delete(firewall);
 
                 // Server
+                //HetznerDotNet.Api.Server server = await HetznerDotNet.Api.Server.Create(
+                //    $"Test-{Guid.NewGuid()}",
+                //    new List<long> { 9304509 },
+                //    4,
+                //    67794396,
+                //    22,
+                //    enableIpv4:true,
+                //    enableIpv6:true);
                 //List<HetznerDotNet.Api.Server> listServer = await HetznerDotNet.Api.Server.Get();
                 //HetznerDotNet.Api.Server server = await HetznerDotNet.Api.Server.Get(listServer[0].Id);
                 //server.Name = "LaloLanda";

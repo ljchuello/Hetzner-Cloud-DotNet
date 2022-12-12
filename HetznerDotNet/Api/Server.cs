@@ -43,6 +43,19 @@ namespace HetznerDotNet.Api
             return response.Server;
         }
 
+        public static async Task<Server> Create(string name, List<long> sshKeys, int locationId, long imageId, int serverTypeId, bool enableIpv4 = true, bool enableIpv6 = true, string cloudConfig = "")
+        {
+            // Preparing raw
+            string raw = $"{{\"name\":\"{name}\",\"ssh_keys\":[{string.Join(",", sshKeys)}],\"location\":{locationId},\"image\":{imageId},\"server_type\":{serverTypeId},\"firewalls\":[],\"public_net\":{{\"enable_ipv4\":{(enableIpv4 ? "true" : "false")},\"enable_ipv6\":{(enableIpv6 ? "true" : "false")}}},\"user_data\":\"{cloudConfig}\"}}";
+
+            // Send post
+            string jsonResponse = await ApiCore.SendPostRequest("/servers", raw);
+
+            // Return
+            JObject result = JObject.Parse(jsonResponse);
+            return JsonConvert.DeserializeObject<Server>($"{result["server"]}") ?? new Server();
+        }
+
         public static async Task<Server> Update(Server server)
         {
             // Preparing raw
