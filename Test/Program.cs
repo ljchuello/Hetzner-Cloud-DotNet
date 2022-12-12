@@ -1,5 +1,4 @@
 ﻿using HetznerDotNet;
-using HetznerDotNet.Enum;
 using Newtonsoft.Json;
 
 namespace Test
@@ -92,11 +91,14 @@ namespace Test
                 //await HetznerDotNet.Api.LoadBalancer.Target.Remove(listLoadBalancer[0], 26419059);
 
                 // Server
-                List<HetznerDotNet.Api.Server> listServer = await HetznerDotNet.Api.Server.Get();
-                HetznerDotNet.Api.Server server = await HetznerDotNet.Api.Server.Get(listServer[0].Id);
-
-                string json = JsonConvert.SerializeObject(server, Formatting.Indented);
-                Console.WriteLine(json);
+                //List<HetznerDotNet.Api.Server> listServer = await HetznerDotNet.Api.Server.Get();
+                //HetznerDotNet.Api.Server server = await HetznerDotNet.Api.Server.Get(listServer[0].Id);
+                //server.Name = "LaloLanda";
+                //server = await HetznerDotNet.Api.Server.Update(server);
+                await HetznerDotNet.Api.Server.Delete(new HetznerDotNet.Api.Server
+                {
+                    Id = 123456789
+                });
             }
             catch (Exception ex)
             {

@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -40,6 +41,25 @@ namespace HetznerDotNet.Api
 
             // Return
             return response.Server;
+        }
+
+        public static async Task<Server> Update(Server server)
+        {
+            // Preparing raw
+            string raw = $"{{\"name\":\"{server.Name}\"}}";
+
+            // Send Put
+            string jsonResponse = await ApiCore.SendPutRequest($"/servers/{server.Id}", raw);
+
+            // Return
+            JObject result = JObject.Parse(jsonResponse);
+            return JsonConvert.DeserializeObject<Server>($"{result["server"]}") ?? new Server();
+        }
+
+        public static async Task Delete(Server server)
+        {
+            // Send post
+            await ApiCore.SendDeleteRequest($"/servers/{server.Id}");
         }
     }
 }

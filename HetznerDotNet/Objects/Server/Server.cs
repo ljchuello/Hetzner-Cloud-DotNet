@@ -13,36 +13,6 @@ namespace HetznerDotNet.Objects.Server
         public string? Status { get; set; }
     }
 
-    //public class Ipv4
-    //{
-    //    [JsonProperty("ip")]
-    //    public string? Ip { get; set; }
-
-    //    [JsonProperty("blocked")]
-    //    public bool? Blocked { get; set; }
-
-    //    [JsonProperty("dns_ptr")]
-    //    public string? DnsPtr { get; set; }
-
-    //    [JsonProperty("id")]
-    //    public long Id { get; set; }
-    //}
-
-    //public class Ipv6
-    //{
-    //    [JsonProperty("ip")]
-    //    public string? Ip { get; set; }
-
-    //    [JsonProperty("blocked")]
-    //    public bool? Blocked { get; set; }
-
-    //    [JsonProperty("dns_ptr")]
-    //    public List<string>? DnsPtr { get; set; }
-
-    //    [JsonProperty("id")]
-    //    public long Id { get; set; }
-    //}
-
     public class PrivateNet
     {
         [JsonProperty("network")]
@@ -76,7 +46,7 @@ namespace HetznerDotNet.Objects.Server
         public Universal.Ipv6? Ipv6 { get; set; }
 
         [JsonProperty("floating_ips")]
-        public List<int>? FloatingIps { get; set; }
+        public List<long>? FloatingIps { get; set; }
 
         [JsonProperty("firewalls")]
         public List<Firewall>? Firewalls { get; set; }
@@ -139,10 +109,10 @@ namespace HetznerDotNet.Objects.Server
         //public Labels Labels { get; set; }
 
         [JsonProperty("volumes")]
-        public List<int>? Volumes { get; set; }
+        public List<long>? Volumes { get; set; }
 
         [JsonProperty("load_balancers")]
-        public List<int>? LoadBalancers { get; set; }
+        public List<long>? LoadBalancers { get; set; }
 
         [JsonProperty("primary_disk_size")]
         public long? PrimaryDiskSize { get; set; }

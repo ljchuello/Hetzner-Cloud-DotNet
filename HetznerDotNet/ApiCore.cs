@@ -126,13 +126,18 @@ namespace HetznerDotNet
                 }
             }
 
-            // No Delete
-            if (httpResponseMessage.StatusCode != HttpStatusCode.NoContent)
+            switch (httpResponseMessage.StatusCode)
             {
-                string json = await httpResponseMessage.Content.ReadAsStringAsync();
-                JObject result = JObject.Parse(json);
-                Error error = JsonConvert.DeserializeObject<Error>($"{result["error"]}") ?? new Error();
-                throw new Exception($"{error.Message}");
+                case HttpStatusCode.NoContent:
+                case HttpStatusCode.OK:
+                    break;
+
+                default:
+                    string json = await httpResponseMessage.Content.ReadAsStringAsync();
+                    JObject result = JObject.Parse(json);
+                    Error error = JsonConvert.DeserializeObject<Error>($"{result["error"]}") ?? new Error();
+                    throw new Exception($"{error.Message}");
+                    break;
             }
         }
     }
