@@ -96,6 +96,7 @@ namespace Test
                 HetznerDotNet.Api.Server server = await HetznerDotNet.Api.Server.Get(listServer[0].Id);
 
                 string json = JsonConvert.SerializeObject(server, Formatting.Indented);
+                Console.WriteLine(json);
             }
             catch (Exception ex)
             {
