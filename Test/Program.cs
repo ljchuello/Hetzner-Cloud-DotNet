@@ -71,14 +71,25 @@ namespace Test
                 //await HetznerDotNet.Api.Volume.Delete(volumeCreate);
 
                 // Load Balancer
-                HetznerDotNet.Api.LoadBalancer loadBalancerAdd = await HetznerDotNet.Api.LoadBalancer.Create("xD", 4, 1, eLoadBalancerAlgorithm.round_robin);
+                //HetznerDotNet.Api.LoadBalancer loadBalancerAdd = await HetznerDotNet.Api.LoadBalancer.Create("xD", 4, 1, eLoadBalancerAlgorithm.round_robin);
                 List<HetznerDotNet.Api.LoadBalancer> listLoadBalancer = await HetznerDotNet.Api.LoadBalancer.Get();
-                HetznerDotNet.Api.LoadBalancer loadBalancer = await HetznerDotNet.Api.LoadBalancer.Get(listLoadBalancer[0].Id);
-                loadBalancer.Name = "Putisimo";
-                loadBalancer = await HetznerDotNet.Api.LoadBalancer.Update(loadBalancer);
-                await HetznerDotNet.Api.LoadBalancer.AttachToNetwork(loadBalancer, 2291088, "192.168.5.55");
-                await HetznerDotNet.Api.LoadBalancer.DetachFromNetwork(loadBalancer, 2291088);
-                await HetznerDotNet.Api.LoadBalancer.Delete(loadBalancer);
+                //HetznerDotNet.Api.LoadBalancer loadBalancer = await HetznerDotNet.Api.LoadBalancer.Get(listLoadBalancer[0].Id);
+                //loadBalancer.Name = "Putisimo";
+                //loadBalancer = await HetznerDotNet.Api.LoadBalancer.Update(loadBalancer);
+                //await HetznerDotNet.Api.LoadBalancer.Network.AttachToNetwork(listLoadBalancer[0], 2291088, "192.168.1.2");
+                //await HetznerDotNet.Api.LoadBalancer.Network.AttachToNetwork(listLoadBalancer[0], 2291088);
+                //await HetznerDotNet.Api.LoadBalancer.Network.DetachFromNetwork(listLoadBalancer[0], 2291088);
+                //await HetznerDotNet.Api.LoadBalancer.Delete(loadBalancer);
+                //await HetznerDotNet.Api.LoadBalancer.Service.Add(listLoadBalancer[0], "tcp", 27017, 3389);
+                //await HetznerDotNet.Api.LoadBalancer.Service.Add(listLoadBalancer[0], "http", 80, 80);
+                //await HetznerDotNet.Api.LoadBalancer.Service.Add(listLoadBalancer[0], "https", 443, 80, certificates:new List<long>{ 1120476 }, redirectHttpToHttps:false);
+                //await HetznerDotNet.Api.LoadBalancer.Service.Remove(listLoadBalancer[0], 27017);
+                //await HetznerDotNet.Api.LoadBalancer.Service.Remove(listLoadBalancer[0], 80);
+                //await HetznerDotNet.Api.LoadBalancer.Service.Remove(listLoadBalancer[0], 443);
+                //await HetznerDotNet.Api.LoadBalancer.Target.Add(listLoadBalancer[0], 26419059, usePrivateIp: false);
+                //await HetznerDotNet.Api.LoadBalancer.Target.Add(listLoadBalancer[0], 26419059, usePrivateIp: true);
+                //await HetznerDotNet.Api.LoadBalancer.Target.Add(listLoadBalancer[0], 26419059);
+                //await HetznerDotNet.Api.LoadBalancer.Target.Remove(listLoadBalancer[0], 26419059);
             }
             catch (Exception ex)
             {

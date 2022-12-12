@@ -58,7 +58,7 @@ namespace HetznerDotNet.Objects.LoadBalancer
         public bool? Tls { get; set; }
 
         [JsonProperty("certificates")]
-        public List<int>? Certificates { get; set; }
+        public List<long>? Certificates { get; set; }
 
         [JsonProperty("cookie_lifetime")]
         public long? CookieLifetime { get; set; }
@@ -88,7 +88,7 @@ namespace HetznerDotNet.Objects.LoadBalancer
         public DateTime? Created { get; set; }
 
         [JsonProperty("id")]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         [JsonProperty("included_traffic")]
         public long? IncludedTraffic { get; set; }

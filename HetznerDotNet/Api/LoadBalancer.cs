@@ -61,7 +61,7 @@ namespace HetznerDotNet.Api
             // Preparing raw
             string raw = $"{{\"name\":\"{loadBalancer.Name}\"}}";
 
-            // Send post
+            // Send Put
             string jsonResponse = await ApiCore.SendPutRequest($"/load_balancers/{loadBalancer.Id}", raw);
 
             // Return
@@ -75,22 +75,178 @@ namespace HetznerDotNet.Api
             await ApiCore.SendDeleteRequest($"/load_balancers/{loadBalancer.Id}");
         }
 
-        public static async Task AttachToNetwork(LoadBalancer loadBalancer, long networkId, string privateIp)
+        public class Network
         {
-            // Preparing raw
-            string raw = $"{{\"network\":{networkId},\"ip\":\"{privateIp}\"}}";
+            public static async Task AttachToNetwork(LoadBalancer loadBalancer, long networkId, string privateIp = null)
+            {
+                // Preparing raw
+                string raw = privateIp != null
+                    ? $"{{\"network\":{networkId},\"ip\":\"{privateIp}\"}}"
+                    : $"{{\"network\":{networkId}}}";
 
-            // Send post
-            await ApiCore.SendPostRequest($"/load_balancers/{loadBalancer.Id}/actions/attach_to_network", raw);
+                // Send post
+                await ApiCore.SendPostRequest($"/load_balancers/{loadBalancer.Id}/actions/attach_to_network", raw);
+            }
+
+            public static async Task DetachFromNetwork(LoadBalancer loadBalancer, long networkId)
+            {
+                // Preparing raw
+                string raw = $"{{\"network\":{networkId}}}";
+
+                // Send post
+                await ApiCore.SendPostRequest($"/load_balancers/{loadBalancer.Id}/actions/detach_from_network", raw);
+            }
         }
 
-        public static async Task DetachFromNetwork(LoadBalancer loadBalancer, long networkId)
+        public class Service : Objects.LoadBalancer.Service
         {
-            // Preparing raw
-            string raw = $"{{\"network\":{networkId}}}";
+            public static async Task Add(LoadBalancer loadBalancer, string protocol, long listenPort, long destinationPort, List<long> certificates = null, bool redirectHttpToHttps = false)
+            {
+                //List<long> asd = new List<long>();
 
-            // Send post
-            await ApiCore.SendPostRequest($"/load_balancers/{loadBalancer.Id}/actions/detach_from_network", raw);
+                Objects.LoadBalancer.Service service = new Objects.LoadBalancer.Service();
+                string raw;
+
+                switch (protocol.ToLower())
+                {
+                    case "tcp":
+                        // Servicio
+                        service.Protocol = "tcp";
+                        service.ListenPort = listenPort;
+                        service.DestinationPort = destinationPort;
+                        service.Proxyprotocol = false;
+                        service.Http = null;
+
+                        // Health check
+                        service.HealthCheck = new Objects.LoadBalancer.HealthCheck();
+                        service.HealthCheck.Protocol = "tcp";
+                        service.HealthCheck.Port = destinationPort;
+                        service.HealthCheck.Interval = 15;
+                        service.HealthCheck.Timeout = 10;
+                        service.HealthCheck.Retries = 3;
+
+                        // Preparing raw
+                        raw = JsonConvert.SerializeObject(service, Formatting.Indented,
+                            new JsonSerializerSettings
+                            {
+                                NullValueHandling = NullValueHandling.Ignore
+                            });
+
+                        // Send post
+                        await ApiCore.SendPostRequest($"/load_balancers/{loadBalancer.Id}/actions/add_service", raw);
+                        return;
+
+                    case "http":
+                        // Servicio
+                        service.Protocol = "http";
+                        service.ListenPort = listenPort;
+                        service.DestinationPort = destinationPort;
+                        service.Proxyprotocol = false;
+
+                        // Http
+                        service.Http = new Objects.LoadBalancer.Http();
+                        service.Http.CookieName = "HCLBSTICKY";
+                        service.Http.CookieLifetime = 300;
+                        service.Http.RedirectHttp = redirectHttpToHttps;
+                        service.Http.StickySessions = false;
+
+                        // Health check
+                        service.HealthCheck = new Objects.LoadBalancer.HealthCheck();
+                        service.HealthCheck.Protocol = "http";
+                        service.HealthCheck.Port = destinationPort;
+                        service.HealthCheck.Interval = 15;
+                        service.HealthCheck.Timeout = 10;
+                        service.HealthCheck.Retries = 3;
+                        service.Http.Path = "/";
+                        service.Http.StatusCodes = new List<string>
+                        {
+                            "2??",
+                            "3??",
+                        };
+                        service.Http.Tls = false;
+
+                        // Preparing raw
+                        raw = JsonConvert.SerializeObject(service, Formatting.Indented,
+                            new JsonSerializerSettings
+                            {
+                                NullValueHandling = NullValueHandling.Ignore
+                            });
+
+                        // Send post
+                        await ApiCore.SendPostRequest($"/load_balancers/{loadBalancer.Id}/actions/add_service", raw);
+                        return;
+
+                    case "https":
+                        // Servicio
+                        service.Protocol = "https";
+                        service.ListenPort = listenPort;
+                        service.DestinationPort = destinationPort;
+                        service.Proxyprotocol = false;
+
+                        // Http
+                        service.Http = new Objects.LoadBalancer.Http();
+                        service.Http.CookieName = "HCLBSTICKY";
+                        service.Http.CookieLifetime = 300;
+                        service.Http.RedirectHttp = redirectHttpToHttps;
+                        service.Http.StickySessions = false;
+                        service.Http.Certificates = certificates;
+
+                        // Health check
+                        service.HealthCheck = new Objects.LoadBalancer.HealthCheck();
+                        service.HealthCheck.Protocol = "http";
+                        service.HealthCheck.Port = destinationPort;
+                        service.HealthCheck.Interval = 15;
+                        service.HealthCheck.Timeout = 10;
+                        service.HealthCheck.Retries = 3;
+                        service.HealthCheck.Http = new Objects.LoadBalancer.Http();
+                        service.HealthCheck.Http.Path = "/";
+                        service.HealthCheck.Http.StatusCodes = new List<string>
+                        {
+                            "2??",
+                            "3??",
+                        };
+                        service.HealthCheck.Http.Tls = false;
+
+                        // Preparing raw
+                        raw = JsonConvert.SerializeObject(service, Formatting.Indented,
+                            new JsonSerializerSettings
+                            {
+                                NullValueHandling = NullValueHandling.Ignore
+                            });
+
+                        // Send post
+                        await ApiCore.SendPostRequest($"/load_balancers/{loadBalancer.Id}/actions/add_service", raw);
+                        return;
+                }
+            }
+
+            public static async Task Remove(LoadBalancer loadBalancer, long listenPort)
+            {
+                // Preparing raw
+                string raw = $"{{\"listen_port\":{listenPort}}}";
+
+                // Send post
+                await ApiCore.SendPostRequest($"/load_balancers/{loadBalancer.Id}/actions/delete_service", raw);
+            }
+        }
+
+        public class Target
+        {
+            public static async Task Add(LoadBalancer loadBalancer, long serverId, bool usePrivateIp = true)
+            {
+                string raw = $"{{\"attachments\":[{{\"server\":{{\"id\":{serverId}}},\"use_private_ip\":{(usePrivateIp ? "true" : "false")},\"type\":\"server\"}}]}}";
+                
+                // Send
+                await ApiCore.SendPutRequest($"/load_balancers/{loadBalancer.Id}/_add_targets", raw);
+            }
+
+            public static async Task Remove(LoadBalancer loadBalancer, long serverId)
+            {
+                string raw = $"{{\"attachments\":[{{\"server\":{{\"id\":{serverId}}},\"type\":\"server\"}}]}}";
+
+                // Send
+                await ApiCore.SendPutRequest($"/load_balancers/{loadBalancer.Id}/_remove_targets", raw);
+            }
         }
     }
 }

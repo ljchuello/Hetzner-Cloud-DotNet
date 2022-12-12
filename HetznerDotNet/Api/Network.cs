@@ -5,7 +5,7 @@ using Newtonsoft.Json.Linq;
 
 namespace HetznerDotNet.Api
 {
-    public class Network : HetznerDotNet.Objects.Network.Network
+    public class Network : Objects.Network.Network
     {
         /// <summary>
         /// Get all network
