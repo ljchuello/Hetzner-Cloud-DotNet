@@ -35,8 +35,8 @@ namespace Test
                 //await HetznerDotNet.Api.SshKey.Delete(sshKeyAdd);
 
                 //// Images
-                List<HetznerDotNet.Api.Image> listImage = await HetznerDotNet.Api.Image.Get();
-                HetznerDotNet.Api.Image image = await HetznerDotNet.Api.Image.Get(listImage[15].Id);
+                //List<HetznerDotNet.Api.Image> listImage = await HetznerDotNet.Api.Image.Get();
+                //HetznerDotNet.Api.Image image = await HetznerDotNet.Api.Image.Get(listImage[15].Id);
 
                 //// ServerType
                 //List<HetznerDotNet.Api.ServerType> listServerType = await HetznerDotNet.Api.ServerType.Get();
@@ -166,6 +166,10 @@ namespace Test
                 //{
                 //    Id = 123456789
                 //});
+
+                // Datacenter
+                List<HetznerDotNet.Api.Datacenter> listDataDatacenter = await HetznerDotNet.Api.Datacenter.Get();
+                HetznerDotNet.Api.Datacenter datacenter = await HetznerDotNet.Api.Datacenter.Get(listDataDatacenter[0].Id);
             }
             catch (Exception ex)
             {
