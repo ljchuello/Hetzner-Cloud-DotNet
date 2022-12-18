@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.1</TargetFramework>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Title>Hetzner API Cloud for DotNET</Title>
-    <Version>1.0.4</Version>
+    <Version>1.0.5</Version>
     <Authors>ljchuello</Authors>
     <Product>Hetzner API Cloud for DotNET</Product>
     <Description>Library that allows you to manage all Hetzner Cloud services.</Description>

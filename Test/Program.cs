@@ -21,6 +21,9 @@ namespace Test
                 // Token
                 ApiCore.ApiToken = await File.ReadAllTextAsync("D:\\ApiKey.txt");
 
+
+                await ApiCore.TokenTest();
+
                 //// Location
                 //var locationList = await HetznerDotNet.Api.Location.Get();
                 //string loc = String.Join(",", locationList.Select(x => x.Name));

@@ -20,6 +20,29 @@ namespace HetznerDotNet
             set => apiToken = value;
         }
 
+        /// <summary>
+        /// Validates if the token has read and write permissions
+        /// </summary>
+        /// <returns></returns>
+        public static async Task<bool> TokenTest()
+        {
+            try
+            {
+                // Create
+                Api.Firewall firewall = await Api.Firewall.Create($"Test - {Guid.NewGuid()}");
+
+                // Delete
+                await Api.Firewall.Delete(firewall);
+
+                // Libre de pecados
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
         public static async Task<string> SendGetRequest(string url)
         {
             HttpResponseMessage httpResponseMessage;
