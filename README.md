@@ -24,7 +24,7 @@ PM> Install-Package [HetznerCloudApiDotNet ](https://www.nuget.org/packages/Hetz
 
 ```csharp
 // Set token
-ApiCore.ApiToken = "UltraPrivateSecretKeyHetzner";
+HetznerDotNet.ApiCore.ApiToken = "UltraPrivateSecretKeyHetzner";
 
 // Get SSH
 HetznerDotNet.Api.SshKey sshKey = await HetznerDotNet.Api.SshKey.Get(123456789);
@@ -38,9 +38,5 @@ HetznerDotNet.Api.Image image = await HetznerDotNet.Api.Image.Get(67794396);
 // Create Server
 await HetznerDotNet.Api.Server.Create("Server Test", new List<long> { sshKey.Id }, location.Id, image.Id, 15);
 ```
-
-## Implemented functionality
-
-Check the implemented functionality  wiki
 
 > Made with ❤️ in LATAM 
