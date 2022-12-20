@@ -5,7 +5,7 @@
 
 This library allows you to manage all the services offered by Hetzner Cloud, with this library you can manage and automate the creation of servers until the implementation of applications that allow you to scale horizontally.
 
-![Download](https://img.shields.io/nuget/dt/HetznerCloudApiDotNet?style=for-the-badge) ![Files](https://img.shields.io/github/directory-file-count/ljchuello/Hetzner-Cloud-DotNet?style=for-the-badge) ![Size](https://img.shields.io/github/repo-size/ljchuello/Hetzner-Cloud-DotNet?style=for-the-badge) ![Languahe](https://img.shields.io/github/languages/top/ljchuello/Hetzner-Cloud-DotNet?style=for-the-badge) ![Last](https://img.shields.io/github/last-commit/ljchuello/Hetzner-Cloud-DotNet?style=for-the-badge) ![Contributors](https://img.shields.io/github/contributors/ljchuello/Hetzner-Cloud-DotNet?style=for-the-badge)
+![Nuget](https://img.shields.io/nuget/v/HetznerCloudApiDotNet?style=for-the-badge) ![Download](https://img.shields.io/nuget/dt/HetznerCloudApiDotNet?style=for-the-badge) ![Files](https://img.shields.io/github/directory-file-count/ljchuello/Hetzner-Cloud-DotNet?style=for-the-badge) ![Size](https://img.shields.io/github/repo-size/ljchuello/Hetzner-Cloud-DotNet?style=for-the-badge) ![Languahe](https://img.shields.io/github/languages/top/ljchuello/Hetzner-Cloud-DotNet?style=for-the-badge) ![Last](https://img.shields.io/github/last-commit/ljchuello/Hetzner-Cloud-DotNet?style=for-the-badge) ![Contributors](https://img.shields.io/github/contributors/ljchuello/Hetzner-Cloud-DotNet?style=for-the-badge)
 
 ## Compatibility
 
