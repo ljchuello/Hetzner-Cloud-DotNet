@@ -3,9 +3,9 @@
 
 ![Hetzner Cloud DotNet](https://raw.githubusercontent.com/ljchuello/Hetzner-Cloud-DotNet/master/icon_128.png)
 
-This library allows you to manage all the services offered by Hetzner Cloud, with this library you can manage and automate the creation of servers until the implementation of applications that allow you to scale horizontally.
-
 ![](https://sonarcloud.io/api/project_badges/measure?project=ljchuello_Hetzner-Cloud-DotNet&metric=security_rating) ![](https://sonarcloud.io/api/project_badges/measure?project=ljchuello_Hetzner-Cloud-DotNet&metric=bugs) ![](https://sonarcloud.io/api/project_badges/measure?project=ljchuello_Hetzner-Cloud-DotNet&metric=vulnerabilities) ![](https://img.shields.io/nuget/v/HetznerCloudApiDotNet) ![](https://img.shields.io/nuget/dt/HetznerCloudApiDotNet) ![](https://sonarcloud.io/api/project_badges/measure?project=ljchuello_Hetzner-Cloud-DotNet&metric=reliability_rating) ![](https://img.shields.io/github/languages/code-size/ljchuello/Hetzner-Cloud-DotNet) ![](https://sonarcloud.io/api/project_badges/measure?project=ljchuello_Hetzner-Cloud-DotNet&metric=ncloc) ![](https://img.shields.io/github/languages/top/ljchuello/Hetzner-Cloud-DotNet) ![](https://sonarcloud.io/api/project_badges/measure?project=ljchuello_Hetzner-Cloud-DotNet&metric=sqale_rating) ![](https://img.shields.io/github/contributors/ljchuello/Hetzner-Cloud-DotNet) ![](https://img.shields.io/github/last-commit/ljchuello/Hetzner-Cloud-DotNet)
+
+This library allows you to manage all the services offered by Hetzner Cloud, with this library you can manage and automate the creation of servers until the implementation of applications that allow you to scale horizontally.
 
 ## Compatibility
 
