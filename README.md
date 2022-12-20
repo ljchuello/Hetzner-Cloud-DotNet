@@ -1,3 +1,4 @@
+
 # Welcome to Hetzner Cloud DotNet
 
 ![Hetzner Cloud DotNet](https://raw.githubusercontent.com/ljchuello/Hetzner-Cloud-DotNet/master/icon_128.png)
@@ -39,4 +40,9 @@ HetznerDotNet.Api.Image image = await HetznerDotNet.Api.Image.Get(67794396);
 await HetznerDotNet.Api.Server.Create("Server Test", new List<long> { sshKey.Id }, location.Id, image.Id, 15);
 ```
 
-> Made with ❤️ in LATAM 
+### Implemented functionality
+To have the complete list of the functionalities implemented in this library [consult the Wiki](https://github.com/ljchuello/Hetzner-Cloud-DotNet/wiki)
+
+---
+
+> Made with ❤️ in LATAM for the 🌎
