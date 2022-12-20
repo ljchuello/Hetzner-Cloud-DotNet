@@ -4,8 +4,6 @@
 
 This library allows you to manage all the services offered by Hetzner Cloud, with this library you can manage and automate the creation of servers until the implementation of applications that allow you to scale horizontally.
 
-> Made with ❤️ in LATAM for the 🌎
-
 # Compatibility
 
 This library is developed in .NET Standard 2.1 and is compatible with all .NET and .NET Core implementations (**.NET Framework is not supported**), it can also be used in Console projects, Web API, Class Library and even with Blazor WASM .
