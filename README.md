@@ -1,4 +1,3 @@
-
 # Welcome to Hetzner Cloud DotNet
 
 ![Hetzner Cloud DotNet](https://raw.githubusercontent.com/ljchuello/Hetzner-Cloud-DotNet/master/icon_128.png)
@@ -20,8 +19,11 @@ This library is developed in .NET Standard 2.1 and is compatible with all .NET a
 
 To install you must go to Nuget package manager and search for "HetznerCloudApiDotNet" and then install.
 
-### NuGet-CLI
-PM> Install-Package [HetznerCloudApiDotNet ](https://www.nuget.org/packages/HetznerCloudApiDotNet/)
+
+
+### [NuGet Package](https://www.nuget.org/packages/HetznerCloudApiDotNet/)
+
+    PM> Install-Package HetznerCloudApiDotNet
 
 ## Usage
 
