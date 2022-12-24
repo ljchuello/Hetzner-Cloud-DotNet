@@ -86,10 +86,9 @@ namespace HetznerDotNet.Api
                 await ApiCore.SendPostRequest($"/servers/{serverId}/actions/add_to_placement_group", json);
             }
 
-            public static Task AddToPlacementGroup(PlacementGroup placementGroup, Server server)
+            public static async Task AddToPlacementGroup(PlacementGroup placementGroup, Server server)
             {
-                AddToPlacementGroup(placementGroup.Id, server.Id);
-                return Task.CompletedTask;
+                await AddToPlacementGroup(placementGroup.Id, server.Id);
             }
 
             public static async Task RemoveFromPlacementGroup(long placementGroupId, long serverId)
@@ -101,10 +100,9 @@ namespace HetznerDotNet.Api
                 await ApiCore.SendPostRequest($"/servers/{serverId}/actions/remove_from_placement_group", json);
             }
 
-            public static Task RemoveFromPlacementGroup(PlacementGroup placementGroup, Server server)
+            public static async Task RemoveFromPlacementGroup(PlacementGroup placementGroup, Server server)
             {
-                RemoveFromPlacementGroup(placementGroup.Id, server.Id);
-                return Task.CompletedTask;
+                await RemoveFromPlacementGroup(placementGroup.Id, server.Id);
             }
         }
     }

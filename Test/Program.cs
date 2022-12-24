@@ -55,14 +55,31 @@
 
                 // PlacementGroup
                 //HetznerDotNet.Api.PlacementGroup placementGroupAdd = await HetznerDotNet.Api.PlacementGroup.Create($"Test");
+                //string des = "my placement group";
                 //List<HetznerDotNet.Api.PlacementGroup> listPlacementGroup = await HetznerDotNet.Api.PlacementGroup.Get();
                 //HetznerDotNet.Api.PlacementGroup placementGroup = await HetznerDotNet.Api.PlacementGroup.Get(listPlacementGroup[0].Id);
                 //placementGroupAdd.Name = $"TEST - {Guid.NewGuid()}";
                 //HetznerDotNet.Api.PlacementGroup placementGroupUpdate = await HetznerDotNet.Api.PlacementGroup.Update(placementGroupAdd);
+
                 //await HetznerDotNet.Api.PlacementGroup.Delete(placementGroupAdd);
 
-                await HetznerDotNet.Api.PlacementGroup.Action.AddToPlacementGroup(107641, 26800991);
-                await HetznerDotNet.Api.PlacementGroup.Action.RemoveFromPlacementGroup(107641, 26800991);
+                //await HetznerDotNet.Api.PlacementGroup.Action.AddToPlacementGroup(107641, 26800991);
+                //await HetznerDotNet.Api.PlacementGroup.Action.RemoveFromPlacementGroup(107641, 26800991);
+
+                //// To update, we first get a PlacementGroup
+                //HetznerDotNet.Api.PlacementGroup placementGroup = await HetznerDotNet.Api.PlacementGroup.Get(123);
+
+                //// We change the description
+                //placementGroup.Name = "new name";
+
+                // Get the Placement Group
+                HetznerDotNet.Api.PlacementGroup placementGroup = await HetznerDotNet.Api.PlacementGroup.Get(123);
+
+                // Get the server
+                HetznerDotNet.Api.Server server = await HetznerDotNet.Api.Server.Get(123);
+
+                // Remove from Placement Group
+                await HetznerDotNet.Api.PlacementGroup.Action.RemoveFromPlacementGroup(placementGroup, server);
 
                 // Volumes
                 //HetznerDotNet.Api.Volume volumeCreate = await HetznerDotNet.Api.Volume.Create($"nvmexd-{Guid.NewGuid()}", 15, "xfs", "nbg1");
