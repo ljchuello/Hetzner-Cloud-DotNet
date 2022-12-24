@@ -1,6 +1,4 @@
-﻿using HetznerDotNet;
-
-namespace Test
+﻿namespace Test
 {
     internal class Program
     {
@@ -18,16 +16,16 @@ namespace Test
                 string clave = sshKeyGenerator.ToPrivateKey();
                 string valor = sshKeyGenerator.ToRfcPublicKey();
 
-                // Token
-                ApiCore.ApiToken = await File.ReadAllTextAsync("D:\\ApiKey.txt");
+                // Set token
+                HetznerDotNet.ApiCore.ApiToken = await File.ReadAllTextAsync("D:\\ApiKey.txt");
 
-
-                await ApiCore.TokenTest();
+                //List<HetznerDotNet.Api.Datacenter> listDatacenters = await HetznerDotNet.Api.Datacenter.Get();
+                //HetznerDotNet.Api.Datacenter datacenter = await HetznerDotNet.Api.Datacenter.Get(4);
 
                 //// Location
-                //var locationList = await HetznerDotNet.Api.Location.Get();
+                //List<HetznerDotNet.Api.Location> locationList = await HetznerDotNet.Api.Location.Get();
+                //HetznerDotNet.Api.Location location = await HetznerDotNet.Api.Location.Get(1);
                 //string loc = String.Join(",", locationList.Select(x => x.Name));
-                //var location = await HetznerDotNet.Api.Location.Get(locationList[0].Id);
 
                 //// SshKey
                 //HetznerDotNet.Api.SshKey sshKeyAdd = await HetznerDotNet.Api.SshKey.Create($"TEST - {Guid.NewGuid()}", valor);
@@ -62,6 +60,9 @@ namespace Test
                 //placementGroupAdd.Name = $"TEST - {Guid.NewGuid()}";
                 //HetznerDotNet.Api.PlacementGroup placementGroupUpdate = await HetznerDotNet.Api.PlacementGroup.Update(placementGroupAdd);
                 //await HetznerDotNet.Api.PlacementGroup.Delete(placementGroupAdd);
+
+                await HetznerDotNet.Api.PlacementGroup.Action.AddToPlacementGroup(107641, 26800991);
+                await HetznerDotNet.Api.PlacementGroup.Action.RemoveFromPlacementGroup(107641, 26800991);
 
                 // Volumes
                 //HetznerDotNet.Api.Volume volumeCreate = await HetznerDotNet.Api.Volume.Create($"nvmexd-{Guid.NewGuid()}", 15, "xfs", "nbg1");
@@ -171,8 +172,8 @@ namespace Test
                 //});
 
                 // Datacenter
-                List<HetznerDotNet.Api.Datacenter> listDataDatacenter = await HetznerDotNet.Api.Datacenter.Get();
-                HetznerDotNet.Api.Datacenter datacenter = await HetznerDotNet.Api.Datacenter.Get(listDataDatacenter[0].Id);
+                //List<HetznerDotNet.Api.Datacenter> listDataDatacenter = await HetznerDotNet.Api.Datacenter.Get();
+                //HetznerDotNet.Api.Datacenter datacenter = await HetznerDotNet.Api.Datacenter.Get(listDataDatacenter[0].Id);
             }
             catch (Exception ex)
             {

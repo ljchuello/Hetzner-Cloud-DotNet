@@ -74,5 +74,38 @@ namespace HetznerDotNet.Api
             // Send post
             await ApiCore.SendDeleteRequest($"/placement_groups/{placementGroup.Id}");
         }
+
+        public class Action
+        {
+            public static async Task AddToPlacementGroup(long placementGroupId, long serverId)
+            {
+                // Set raw
+                string json = $"{{\"placement_group\":{placementGroupId}}}";
+
+                // Send post
+                await ApiCore.SendPostRequest($"/servers/{serverId}/actions/add_to_placement_group", json);
+            }
+
+            public static Task AddToPlacementGroup(PlacementGroup placementGroup, Server server)
+            {
+                AddToPlacementGroup(placementGroup.Id, server.Id);
+                return Task.CompletedTask;
+            }
+
+            public static async Task RemoveFromPlacementGroup(long placementGroupId, long serverId)
+            {
+                // Set raw
+                string json = $"{{\"placement_group\":{placementGroupId}}}";
+
+                // Send post
+                await ApiCore.SendPostRequest($"/servers/{serverId}/actions/remove_from_placement_group", json);
+            }
+
+            public static Task RemoveFromPlacementGroup(PlacementGroup placementGroup, Server server)
+            {
+                RemoveFromPlacementGroup(placementGroup.Id, server.Id);
+                return Task.CompletedTask;
+            }
+        }
     }
 }
