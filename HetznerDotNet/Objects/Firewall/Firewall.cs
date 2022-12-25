@@ -28,7 +28,7 @@ namespace HetznerDotNet.Objects.Firewall
         public DateTime? Created { get; set; }
 
         [JsonProperty("rules")]
-        public List<Rule>? Rules { get; set; }
+        public List<Api.Firewall.Rule>? Rules { get; set; }
 
         [JsonProperty("applied_to")]
         public List<AppliedTo>? AppliedTo { get; set; }

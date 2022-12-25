@@ -17,7 +17,8 @@
                 string valor = sshKeyGenerator.ToRfcPublicKey();
 
                 // Set token
-                HetznerDotNet.ApiCore.ApiToken = await File.ReadAllTextAsync("D:\\ApiKey.txt");
+                //HetznerDotNet.ApiCore.ApiToken = await File.ReadAllTextAsync("D:\\ApiKey.txt");
+                HetznerDotNet.ApiCore.ApiToken = await File.ReadAllTextAsync("C:\\xxx\\txt.txt");
 
                 //List<HetznerDotNet.Api.Datacenter> listDatacenters = await HetznerDotNet.Api.Datacenter.Get();
                 //HetznerDotNet.Api.Datacenter datacenter = await HetznerDotNet.Api.Datacenter.Get(4);
@@ -73,13 +74,13 @@
                 //placementGroup.Name = "new name";
 
                 // Get the Placement Group
-                HetznerDotNet.Api.PlacementGroup placementGroup = await HetznerDotNet.Api.PlacementGroup.Get(123);
+                //HetznerDotNet.Api.PlacementGroup placementGroup = await HetznerDotNet.Api.PlacementGroup.Get(123);
 
-                // Get the server
-                HetznerDotNet.Api.Server server = await HetznerDotNet.Api.Server.Get(123);
+                //// Get the server
+                //HetznerDotNet.Api.Server server = await HetznerDotNet.Api.Server.Get(123);
 
-                // Remove from Placement Group
-                await HetznerDotNet.Api.PlacementGroup.Action.RemoveFromPlacementGroup(placementGroup, server);
+                //// Remove from Placement Group
+                //await HetznerDotNet.Api.PlacementGroup.Action.RemoveFromPlacementGroup(placementGroup, server);
 
                 // Volumes
                 //HetznerDotNet.Api.Volume volumeCreate = await HetznerDotNet.Api.Volume.Create($"nvmexd-{Guid.NewGuid()}", 15, "xfs", "nbg1");
@@ -115,29 +116,42 @@
                 //List<HetznerDotNet.Api.Firewall> listFirewalls = await HetznerDotNet.Api.Firewall.Get();
                 //await HetznerDotNet.Api.Firewall.Targe.Add(listFirewalls[0], 26437692);
                 //await HetznerDotNet.Api.Firewall.Targe.Remove(listFirewalls[0], 26437692);
-                //firewall = await HetznerDotNet.Api.Firewall.Get(listFirewalls[0].Id);
+                //HetznerDotNet.Api.Firewall firewall = await HetznerDotNet.Api.Firewall.Get(123456789);
                 //firewall.Name = $"TETS - {Guid.NewGuid()}";
                 //firewall = await HetznerDotNet.Api.Firewall.Update(firewall);
 
-                //List<HetznerDotNet.Api.Firewall.Rule> listRules = new List<HetznerDotNet.Api.Firewall.Rule>();
+                // Get firewall
+                //HetznerDotNet.Api.Firewall firewall = await HetznerDotNet.Api.Firewall.Get(647249);
+
+                //// ServID to which the firewall is to be assigned
+                //long serverId = 26839334;
+
+                //// Apply to resources
+                //await HetznerDotNet.Api.Firewall.Targe.Remove(firewall, serverId);
+
                 //// Enable port 80 / tcp / in / All traffic ipv4 and ipv6
                 //listRules.Add(new HetznerDotNet.Api.Firewall.Rule
                 //{
                 //    Direction = "in",
-                //    Protocol = "tcp",
+                //Protocol = "tcp",
                 //    Port = "80",
                 //    Description = "Port 80 for http",
-                //    SourceIps = new List<string>{"0.0.0.0/0", "::/0"}
+                //    SourceIps = new List<string> { "0.0.0.0/0", "::/0" }
                 //});
-                //// Enable port 443 / tcp / in / All traffic ipv4 and ipv6
+
+                //// Enable port 22 / tcp / in / All traffic ipv4 and ipv6
                 //listRules.Add(new HetznerDotNet.Api.Firewall.Rule
                 //{
                 //    Direction = "in",
                 //    Protocol = "tcp",
-                //    Port = "443",
-                //    Description = "Port 443 for https",
+                //    Port = "22",
+                //    Description = "Port 22 for https",
                 //    SourceIps = new List<string> { "0.0.0.0/0", "::/0" }
                 //});
+
+                //// Send rules
+                //await HetznerDotNet.Api.Firewall.Rule.SetRules(firewall, listRules);
+
                 //// Enable port range 40000-50000 / tcp / in / only 8.8.8.8
                 //listRules.Add(new HetznerDotNet.Api.Firewall.Rule
                 //{
