@@ -98,7 +98,7 @@ namespace HetznerDotNet.Api
             }
         }
 
-        public class Service : Objects.LoadBalancer.Service
+        public class Service
         {
             public static async Task Add(LoadBalancer loadBalancer, string protocol, long listenPort, long destinationPort, List<long> certificates = null, bool redirectHttpToHttps = false)
             {

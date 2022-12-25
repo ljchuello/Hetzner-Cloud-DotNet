@@ -17,8 +17,7 @@
                 string valor = sshKeyGenerator.ToRfcPublicKey();
 
                 // Set token
-                //HetznerDotNet.ApiCore.ApiToken = await File.ReadAllTextAsync("D:\\ApiKey.txt");
-                HetznerDotNet.ApiCore.ApiToken = await File.ReadAllTextAsync("C:\\xxx\\txt.txt");
+                HetznerDotNet.ApiCore.ApiToken = await File.ReadAllTextAsync("D:\\ApiKey.txt");
 
                 //List<HetznerDotNet.Api.Datacenter> listDatacenters = await HetznerDotNet.Api.Datacenter.Get();
                 //HetznerDotNet.Api.Datacenter datacenter = await HetznerDotNet.Api.Datacenter.Get(4);
@@ -90,10 +89,38 @@
                 //HetznerDotNet.Api.Volume volumeEdit = await HetznerDotNet.Api.Volume.Update(volumeCreate);
                 //await HetznerDotNet.Api.Volume.Delete(volumeCreate);
 
-                // Load Balancer
-                //HetznerDotNet.Api.LoadBalancer loadBalancerAdd = await HetznerDotNet.Api.LoadBalancer.Create("xD", 4, 1, eLoadBalancerAlgorithm.round_robin);
+                // Set name
+                //string name = "Load Balancer x1";
+
+                //// Set location | For more information visit the Location section
+                //int locationId = 4; // 4 == Ashburn, VA
+
+                //// Size == 1 => Max Targets (Server) 25
+                //// Size == 2 => Max Targets (Server) 75
+                //// Size == 3 => Max Targets (Server) 150
+                //int size = 1;
+
+                //// Algorithm
+                //// eLoadBalancerAlgorithm.round_robin or eLoadBalancerAlgorithm.least_connections | For more information https://docs.hetzner.cloud/#load-balancers-create-a-load-balancer
+                //eLoadBalancerAlgorithm algorithm = eLoadBalancerAlgorithm.round_robin;
+
+                //// Load Balancer
+                //HetznerDotNet.Api.LoadBalancer loadBalancerAdd = await HetznerDotNet.Api.LoadBalancer.Create(name, locationId, size, algorithm);
                 //List<HetznerDotNet.Api.LoadBalancer> listLoadBalancer = await HetznerDotNet.Api.LoadBalancer.Get();
-                //HetznerDotNet.Api.LoadBalancer loadBalancer = await HetznerDotNet.Api.LoadBalancer.Get(listLoadBalancer[0].Id);
+                HetznerDotNet.Api.LoadBalancer loadBalancer = await HetznerDotNet.Api.LoadBalancer.Get(999064);
+                //loadBalancer.Name = "New Name";
+
+                //// Update
+                //loadBalancer = await HetznerDotNet.Api.LoadBalancer.Update(loadBalancer);
+
+                //await HetznerDotNet.Api.LoadBalancer.Delete(new HetznerDotNet.Api.LoadBalancer());
+
+                //await HetznerDotNet.Api.LoadBalancer.Network.AttachToNetwork(loadBalancer, 2336180);
+
+                // xxxxxxxx
+                //await HetznerDotNet.Api.LoadBalancer.Network.AttachToNetwork(loadBalancer, 2336180, "192.168.12.125");
+                await HetznerDotNet.Api.LoadBalancer.Network.DetachFromNetwork(loadBalancer, 2336180);
+
                 //loadBalancer.Name = "Putisimo";
                 //loadBalancer = await HetznerDotNet.Api.LoadBalancer.Update(loadBalancer);
                 //await HetznerDotNet.Api.LoadBalancer.Network.AttachToNetwork(listLoadBalancer[0], 2291088, "192.168.1.2");
