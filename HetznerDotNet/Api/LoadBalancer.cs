@@ -43,7 +43,7 @@ namespace HetznerDotNet.Api
             return response.LoadBalancer;
         }
 
-        public static async Task<LoadBalancer> Create(string name, int locationId, int size, Enum.eLoadBalancerAlgorithm loadBalancerAlgorithm)
+        public static async Task<LoadBalancer> Create(string name, long locationId, int size, Enum.eLoadBalancerAlgorithm loadBalancerAlgorithm)
         {
             // Preparing raw
             string raw = $"{{\"name\":\"{name}\",\"location\":{locationId},\"load_balancer_type\":{size},\"algorithm\":{{\"type\":\"{loadBalancerAlgorithm}\"}}}}";

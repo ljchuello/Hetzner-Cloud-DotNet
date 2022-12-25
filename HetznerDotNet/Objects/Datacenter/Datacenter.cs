@@ -6,7 +6,7 @@ namespace HetznerDotNet.Objects.Datacenter
     public class Datacenter
     {
         [JsonProperty("id")]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         [JsonProperty("name")]
         public string? Name { get; set; }
