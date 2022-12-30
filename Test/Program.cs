@@ -107,19 +107,7 @@
                 //// Load Balancer
                 //HetznerDotNet.Api.LoadBalancer loadBalancerAdd = await HetznerDotNet.Api.LoadBalancer.Create(name, locationId, size, algorithm);
                 //List<HetznerDotNet.Api.LoadBalancer> listLoadBalancer = await HetznerDotNet.Api.LoadBalancer.Get();
-                HetznerDotNet.Api.LoadBalancer loadBalancer = await HetznerDotNet.Api.LoadBalancer.Get(999064);
-                //loadBalancer.Name = "New Name";
-
-                //// Update
-                //loadBalancer = await HetznerDotNet.Api.LoadBalancer.Update(loadBalancer);
-
-                //await HetznerDotNet.Api.LoadBalancer.Delete(new HetznerDotNet.Api.LoadBalancer());
-
-                //await HetznerDotNet.Api.LoadBalancer.Network.AttachToNetwork(loadBalancer, 2336180);
-
-                // xxxxxxxx
-                //await HetznerDotNet.Api.LoadBalancer.Network.AttachToNetwork(loadBalancer, 2336180, "192.168.12.125");
-                await HetznerDotNet.Api.LoadBalancer.Network.DetachFromNetwork(loadBalancer, 2336180);
+                //HetznerDotNet.Api.LoadBalancer loadBalancer = await HetznerDotNet.Api.LoadBalancer.Get(999166);
 
                 //loadBalancer.Name = "Putisimo";
                 //loadBalancer = await HetznerDotNet.Api.LoadBalancer.Update(loadBalancer);
@@ -137,6 +125,15 @@
                 //await HetznerDotNet.Api.LoadBalancer.Target.Add(listLoadBalancer[0], 26419059, usePrivateIp: true);
                 //await HetznerDotNet.Api.LoadBalancer.Target.Add(listLoadBalancer[0], 26419059);
                 //await HetznerDotNet.Api.LoadBalancer.Target.Remove(listLoadBalancer[0], 26419059);
+
+                // Get Load Balancer
+                HetznerDotNet.Api.LoadBalancer loadBalancer = await HetznerDotNet.Api.LoadBalancer.Get(1005098);
+
+                // Server Id (target)
+                long serverId = 26996939;
+
+                // Remove Service
+                await HetznerDotNet.Api.LoadBalancer.Target.Add(loadBalancer, serverId, false);
 
                 // Firewall
                 //HetznerDotNet.Api.Firewall firewall = await HetznerDotNet.Api.Firewall.Create("LJChuello");

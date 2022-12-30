@@ -232,7 +232,7 @@ namespace HetznerDotNet.Api
 
         public class Target
         {
-            public static async Task Add(LoadBalancer loadBalancer, long serverId, bool usePrivateIp = true)
+            public static async Task Add(LoadBalancer loadBalancer, long serverId, bool usePrivateIp = false)
             {
                 string raw = $"{{\"attachments\":[{{\"server\":{{\"id\":{serverId}}},\"use_private_ip\":{(usePrivateIp ? "true" : "false")},\"type\":\"server\"}}]}}";
                 
