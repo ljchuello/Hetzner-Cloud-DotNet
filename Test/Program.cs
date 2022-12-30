@@ -133,7 +133,7 @@
                 long serverId = 26996939;
 
                 // Remove Service
-                await HetznerDotNet.Api.LoadBalancer.Target.Add(loadBalancer, serverId, false);
+                await HetznerDotNet.Api.LoadBalancer.Target.Add(loadBalancer, serverId, true);
 
                 // Firewall
                 //HetznerDotNet.Api.Firewall firewall = await HetznerDotNet.Api.Firewall.Create("LJChuello");
