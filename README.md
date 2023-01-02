@@ -44,7 +44,23 @@ HetznerDotNet.Api.Image image = await HetznerDotNet.Api.Image.Get(67794396);
 await HetznerDotNet.Api.Server.Create("Server Test", new List<long> { sshKey.Id }, location.Id, image.Id, 15);
 ```
 
-### Implemented functionality
+## Currently implemented endpoints and functions:
+
+:heavy_check_mark: - Available on API, implemented\
+:x: - Available on API, not implemented\
+:heavy_minus_sign: - Not available on API
+
+|  | Get | Get all | Create | Update | Delete | Actions |
+|--|:--:|:--:|:--:|:--:|:--:|:--:|
+| Datacenter | :heavy_check_mark: | :heavy_check_mark: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: |
+| Firewall | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Image | :heavy_check_mark: | :heavy_check_mark: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: |
+| Load Balancer | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Location | :heavy_check_mark: | :heavy_check_mark: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: |
+| Network | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Placement Group | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+
+## Implemented functionality
 To have the complete list of the functionalities implemented in this library [consult the Wiki](https://github.com/ljchuello/Hetzner-Cloud-DotNet/wiki)
 
 ---
