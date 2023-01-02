@@ -11,13 +11,12 @@
         {
             try
             {
+                HetznerDotNet.ApiCore.ApiToken = await File.ReadAllTextAsync("D:\\ApiKey.txt");
+
                 // Tools - Generate Real SSH Pri/Pub
                 SshKeyGenerator.SshKeyGenerator sshKeyGenerator = new SshKeyGenerator.SshKeyGenerator(2048);
                 string clave = sshKeyGenerator.ToPrivateKey();
                 string valor = sshKeyGenerator.ToRfcPublicKey();
-
-                // Set token
-                HetznerDotNet.ApiCore.ApiToken = await File.ReadAllTextAsync("D:\\ApiKey.txt");
 
                 //List<HetznerDotNet.Api.Datacenter> listDatacenters = await HetznerDotNet.Api.Datacenter.Get();
                 //HetznerDotNet.Api.Datacenter datacenter = await HetznerDotNet.Api.Datacenter.Get(4);
@@ -126,14 +125,14 @@
                 //await HetznerDotNet.Api.LoadBalancer.Target.Add(listLoadBalancer[0], 26419059);
                 //await HetznerDotNet.Api.LoadBalancer.Target.Remove(listLoadBalancer[0], 26419059);
 
-                // Get Load Balancer
-                HetznerDotNet.Api.LoadBalancer loadBalancer = await HetznerDotNet.Api.LoadBalancer.Get(1005098);
+                //// Get Load Balancer
+                //HetznerDotNet.Api.LoadBalancer loadBalancer = await HetznerDotNet.Api.LoadBalancer.Get(1005098);
 
-                // Server Id (target)
-                long serverId = 26996939;
+                //// Server Id (target)
+                //long serverId = 26996939;
 
-                // Remove Service
-                await HetznerDotNet.Api.LoadBalancer.Target.Add(loadBalancer, serverId, true);
+                //// Remove target
+                //await HetznerDotNet.Api.LoadBalancer.Target.Remove(loadBalancer, serverId);
 
                 // Firewall
                 //HetznerDotNet.Api.Firewall firewall = await HetznerDotNet.Api.Firewall.Create("LJChuello");
@@ -229,6 +228,8 @@
                 // Datacenter
                 //List<HetznerDotNet.Api.Datacenter> listDataDatacenter = await HetznerDotNet.Api.Datacenter.Get();
                 //HetznerDotNet.Api.Datacenter datacenter = await HetznerDotNet.Api.Datacenter.Get(listDataDatacenter[0].Id);
+
+                Console.WriteLine(0);
             }
             catch (Exception ex)
             {

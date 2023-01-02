@@ -7,10 +7,6 @@ namespace HetznerDotNet.Api
 {
     public class Volume : Objects.Volume.Volume
     {
-        /// <summary>
-        /// List all volumes
-        /// </summary>
-        /// <returns></returns>
         public static async Task<List<Volume>> Get()
         {
             List<Volume> list = new List<Volume>();
@@ -38,11 +34,6 @@ namespace HetznerDotNet.Api
             }
         }
 
-        /// <summary>
-        /// Get a volemune according to your id
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
         public static async Task<Volume> Get(long id)
         {
             // Get list
@@ -52,18 +43,10 @@ namespace HetznerDotNet.Api
             return response.Volume;
         }
 
-        /// <summary>
-        /// Create a volume
-        /// </summary>
-        /// <param name="name">Volume name</param>
-        /// <param name="size">Volume Size (in GiB)</param>
-        /// <param name="format">Volume format (ext4 or xfs)</param>
-        /// <param name="location">Region (fsn1, nbg1, hel1, ash, hil)</param>
-        /// <returns></returns>
-        public static async Task<Volume> Create(string name, int size, string format, string location)
+        public static async Task<Volume> Create(string name, int size, VolumeFormat volumeFormat, int locationId)
         {
             // Preparing raw
-            string raw = $"{{\"automount\":false,\"format\":\"{format}\",\"location\":\"{location}\",\"name\":\"{name}\",\"size\":{size:n0}}}";
+            string raw = $"{{\"automount\":false,\"format\":\"{volumeFormat}\",\"location\":{locationId},\"name\":\"{name}\",\"size\":{size:n0}}}";
 
             // Send post
             string jsonResponse = await ApiCore.SendPostRequest("/volumes", raw);
@@ -73,11 +56,6 @@ namespace HetznerDotNet.Api
             return JsonConvert.DeserializeObject<Volume>($"{result["volume"]}") ?? new Volume();
         }
 
-        /// <summary>
-        /// Update a volume
-        /// </summary>
-        /// <param name="volume"></param>
-        /// <returns></returns>
         public static async Task<Volume> Update(Volume volume)
         {
             // Preparing raw
@@ -91,15 +69,43 @@ namespace HetznerDotNet.Api
             return JsonConvert.DeserializeObject<Volume>($"{result["volume"]}") ?? new Volume();
         }
 
-        /// <summary>
-        /// Delete a volumen
-        /// </summary>
-        /// <param name="volume"></param>
-        /// <returns></returns>
         public static async Task Delete(Volume volume)
         {
             // Send post
             await ApiCore.SendDeleteRequest($"/volumes/{volume.Id}");
+        }
+
+        public class Action
+        {
+            public static async Task Attach(Volume volume, long serverId, bool autoMount = true)
+            {
+                // Raw
+                string rawJson = $"{{\"server\":{serverId},\"automount\":{(autoMount ? "true" : "false")}}}";
+
+                // Send post
+                await ApiCore.SendPostRequest($"/volumes/{volume.Id}/actions/attach", rawJson);
+            }
+
+            public static async Task Detach(Volume volume)
+            {
+                // Send post
+                await ApiCore.SendPostRequest($"/volumes/{volume.Id}/actions/detach", "{}");
+            }
+
+            public static async Task Resize(Volume volume, int size)
+            { 
+                // Raw
+                string rawJson = $"{{\"size\":{size}}}";
+
+                // Send post
+                await ApiCore.SendPostRequest($"/volumes/{volume.Id}/actions/resize", rawJson);
+            }
+        }
+
+        public enum VolumeFormat
+        {
+            ext4,
+            xfs,
         }
     }
 }
