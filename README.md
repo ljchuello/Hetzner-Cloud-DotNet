@@ -44,7 +44,31 @@ HetznerDotNet.Api.Image image = await HetznerDotNet.Api.Image.Get(67794396);
 await HetznerDotNet.Api.Server.Create("Server Test", new List<long> { sshKey.Id }, location.Id, image.Id, 15);
 ```
 
-### Implemented functionality
+## Implemented functionality
+
+:heavy_check_mark: - Available on API, implemented\
+:x: - Available on API, not implemented\
+:heavy_minus_sign:  - Not available on API
+
+|  | Get one | Get all | Create | Update | Delete | Actions |
+|--|:--:|:--:|:--:|:--:|:--:|:--:|
+| Certificates | :x: | :x: | :x: | :x: | :x: | :x: |
+| Datacenters | :heavy_check_mark: | :heavy_check_mark: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: |
+| Firewalls | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Floating IPs | :x: | :x: | :x: | :x: | :x: | :x: |
+| Images | :heavy_check_mark: | :heavy_check_mark: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: |
+| ISOs | :x: | :x: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: |
+| Load Balancers | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Locations | :heavy_check_mark: | :heavy_check_mark: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: |
+| Primary IPs | :x: | :x: | :x: | :x: | :x: | :x: |
+| Networks | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Placement Groups | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Pricing | :heavy_minus_sign: | :x: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: |
+| Servers | :x: | :x: | :x: | :x: | :x: | :x: |
+| Server Types | :x: | :x: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: | :heavy_minus_sign: |
+| SSH Keys | :x: | :x: | :x: | :x: | :x: | :heavy_minus_sign: |
+| Volumes | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+
 To have the complete list of the functionalities implemented in this library [consult the Wiki](https://github.com/ljchuello/Hetzner-Cloud-DotNet/wiki)
 
 ---
