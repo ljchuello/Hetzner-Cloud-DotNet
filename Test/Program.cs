@@ -1,4 +1,6 @@
-﻿namespace Test
+﻿using Newtonsoft.Json;
+
+namespace Test
 {
     internal class Program
     {
@@ -12,11 +14,6 @@
             try
             {
                 HetznerDotNet.ApiCore.ApiToken = await File.ReadAllTextAsync("D:\\ApiKey.txt");
-
-                // Tools - Generate Real SSH Pri/Pub
-                SshKeyGenerator.SshKeyGenerator sshKeyGenerator = new SshKeyGenerator.SshKeyGenerator(2048);
-                string clave = sshKeyGenerator.ToPrivateKey();
-                string valor = sshKeyGenerator.ToRfcPublicKey();
 
                 //List<HetznerDotNet.Api.Datacenter> listDatacenters = await HetznerDotNet.Api.Datacenter.Get();
                 //HetznerDotNet.Api.Datacenter datacenter = await HetznerDotNet.Api.Datacenter.Get(4);
@@ -228,6 +225,10 @@
                 // Datacenter
                 //List<HetznerDotNet.Api.Datacenter> listDataDatacenter = await HetznerDotNet.Api.Datacenter.Get();
                 //HetznerDotNet.Api.Datacenter datacenter = await HetznerDotNet.Api.Datacenter.Get(listDataDatacenter[0].Id);
+
+                HetznerDotNet.Api.ServerType serverType = await HetznerDotNet.Api.ServerType.Get(15);
+
+                string asd = JsonConvert.SerializeObject(serverType, Formatting.Indented);
 
                 Console.WriteLine(0);
             }
