@@ -226,9 +226,11 @@ namespace Test
                 //List<HetznerDotNet.Api.Datacenter> listDataDatacenter = await HetznerDotNet.Api.Datacenter.Get();
                 //HetznerDotNet.Api.Datacenter datacenter = await HetznerDotNet.Api.Datacenter.Get(listDataDatacenter[0].Id);
 
-                HetznerDotNet.Api.ServerType serverType = await HetznerDotNet.Api.ServerType.Get(15);
+                var a = await HetznerDotNet.Api.ServerType.Get();
+                var b = await HetznerDotNet.Api.ServerType.Get(95);
 
-                string asd = JsonConvert.SerializeObject(serverType, Formatting.Indented);
+                string aa = JsonConvert.SerializeObject(a, Formatting.Indented);
+                string bb = JsonConvert.SerializeObject(b, Formatting.Indented);
 
                 Console.WriteLine(0);
             }

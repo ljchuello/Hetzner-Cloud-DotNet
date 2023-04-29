@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using HetznerDotNet.Objects.ServerType.GetOne;
 using Newtonsoft.Json;
 
 namespace HetznerDotNet.Api
@@ -37,7 +36,7 @@ namespace HetznerDotNet.Api
         public static async Task<ServerType> Get(long id)
         {
             // Get list
-            Response response = JsonConvert.DeserializeObject<Response>(await ApiCore.SendGetRequest($"/server_types/{id}")) ?? new Response();
+           HetznerDotNet.Objects.ServerType.GetOne.Response response = JsonConvert.DeserializeObject<HetznerDotNet.Objects.ServerType.GetOne.Response>(await ApiCore.SendGetRequest($"/server_types/{id}")) ?? new HetznerDotNet.Objects.ServerType.GetOne.Response();
 
             // Return
             return response.ServerType;
