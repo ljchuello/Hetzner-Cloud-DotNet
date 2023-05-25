@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using HetznerDotNet.Objects.Location.GetOne;
+﻿using HetznerDotNet.Objects.Location.GetOne;
 using Newtonsoft.Json;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace HetznerDotNet.Api
 {
