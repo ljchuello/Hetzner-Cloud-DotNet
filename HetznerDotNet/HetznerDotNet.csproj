@@ -9,7 +9,7 @@
     <Product>Hetzner API Cloud for DotNET</Product>
     <Description>Library that allows you to manage all Hetzner Cloud services.</Description>
     <PackageIcon>icon_128.png</PackageIcon>
-    <PackageProjectUrl>https://www.nuget.org/packages/HetznerDotNet/</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/ljchuello/Hetzner-Cloud-DotNet</PackageProjectUrl>
     <RepositoryUrl>https://github.com/ljchuello/Hetzner-Cloud-DotNet</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageId>HetznerCloudApiDotNet</PackageId>
