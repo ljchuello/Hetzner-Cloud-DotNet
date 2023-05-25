@@ -6,66 +6,66 @@ namespace HetznerDotNet.Objects.ServerType
     public class Price
     {
         [JsonProperty("location")]
-        public string? location { get; set; }
+        public string? Location { get; set; }
 
         [JsonProperty("price_hourly")]
-        public PriceHourly? price_hourly { get; set; }
+        public PriceHourly? PriceHourly { get; set; }
 
         [JsonProperty("price_monthly")]
-        public PriceMonthly? price_monthly { get; set; }
+        public PriceMonthly? PriceMonthly { get; set; }
     }
 
     public class PriceHourly
     {
         [JsonProperty("net")]
-        public string? net { get; set; }
+        public string? Net { get; set; }
 
         [JsonProperty("gross")]
-        public string? gross { get; set; }
+        public string? Gross { get; set; }
     }
 
     public class PriceMonthly
     {
         [JsonProperty("net")]
-        public string? net { get; set; }
+        public string? Net { get; set; }
 
         [JsonProperty("gross")]
-        public string? gross { get; set; }
+        public string? Gross { get; set; }
     }
 
     public class ServerType
     {
         [JsonProperty("id")]
-        public int? id { get; set; }
+        public long? Id { get; set; }
 
         [JsonProperty("name")]
-        public string? name { get; set; }
+        public string? Name { get; set; }
 
         [JsonProperty("description")]
-        public string? description { get; set; }
+        public string? Description { get; set; }
 
         [JsonProperty("cores")]
-        public int? cores { get; set; }
+        public int? Cores { get; set; }
 
         [JsonProperty("memory")]
-        public double? memory { get; set; }
+        public double? Memory { get; set; }
 
         [JsonProperty("disk")]
-        public int? disk { get; set; }
+        public int? Disk { get; set; }
 
         //[JsonProperty("deprecated")]
         //public object deprecated { get; set; }
 
         [JsonProperty("prices")]
-        public List<Price>? prices { get; set; }
+        public List<Price>? Prices { get; set; }
 
         [JsonProperty("storage_type")]
-        public string? storage_type { get; set; }
+        public string? StorageType { get; set; }
 
         [JsonProperty("cpu_type")]
-        public string? cpu_type { get; set; }
+        public string? CpuType { get; set; }
 
         [JsonProperty("architecture")]
-        public string? architecture { get; set; }
+        public string? Architecture { get; set; }
     }
 }
