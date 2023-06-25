@@ -46,7 +46,7 @@ namespace HetznerDotNet.Api
         public static async Task<Server> Create(string name, List<long> sshKeys, long locationId, long imageId, long serverTypeId, bool enableIpv4 = true, bool enableIpv6 = true, string cloudConfig = "")
         {
             // Preparing raw
-            string raw = $"{{\"name\":\"{name}\",\"ssh_keys\":[{string.Join(",", sshKeys)}],\"location\":{locationId},\"image\":{imageId},\"server_type\":{serverTypeId},\"firewalls\":[],\"public_net\":{{\"enable_ipv4\":{(enableIpv4 ? "true" : "false")},\"enable_ipv6\":{(enableIpv6 ? "true" : "false")}}},\"user_data\":\"{cloudConfig}\"}}";
+            string raw = $"{{\"name\": \"{name}\",\"ssh_keys\": [{string.Join(",", sshKeys)}],\"location\": {locationId},\"image\": {imageId},\"server_type\": {serverTypeId},\"firewalls\": [],\"public_net\": {{\"enable_ipv4\": {(enableIpv4 ? "true" : "false")},\"enable_ipv6\": {(enableIpv6 ? "true" : "false")}}}, \"user_data\": {JsonConvert.SerializeObject(cloudConfig)}}}";
 
             // Send post
             string jsonResponse = await ApiCore.SendPostRequest("/servers", raw);

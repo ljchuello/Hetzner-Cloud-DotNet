@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using System.Diagnostics.SymbolStore;
+using Newtonsoft.Json;
+using System.Text;
 
 namespace Test
 {
@@ -226,11 +228,12 @@ namespace Test
                 //List<HetznerDotNet.Api.Datacenter> listDataDatacenter = await HetznerDotNet.Api.Datacenter.Get();
                 //HetznerDotNet.Api.Datacenter datacenter = await HetznerDotNet.Api.Datacenter.Get(listDataDatacenter[0].Id);
 
-                var a = await HetznerDotNet.Api.ServerType.Get();
-                var b = await HetznerDotNet.Api.ServerType.Get(95);
+                StringBuilder sb = new StringBuilder();
+                sb.AppendLine($"#cloud-config");
+                sb.AppendLine($"package_update: true");
+                sb.AppendLine($"package_upgrade: true");
 
-                string aa = JsonConvert.SerializeObject(a, Formatting.Indented);
-                string bb = JsonConvert.SerializeObject(b, Formatting.Indented);
+                var server = await HetznerDotNet.Api.Server.Create($"{Guid.NewGuid()}", new List<long> { 11155098 }, 4, 45557056, 22, true, true, sb.ToString());
 
                 Console.WriteLine(0);
             }
