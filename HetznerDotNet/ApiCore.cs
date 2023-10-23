@@ -11,6 +11,8 @@ namespace HetznerDotNet
 {
     public class ApiCore
     {
+        public int PerPage = 250;
+
         private static string apiToken { get; set; } = string.Empty;
         private static readonly string apiServer = "https://api.hetzner.cloud/v1";
 
@@ -57,17 +59,21 @@ namespace HetznerDotNet
 
             // IsNullOrEmpty
             string json = await httpResponseMessage.Content.ReadAsStringAsync();
-            if (string.IsNullOrEmpty(json))
-            {
-                throw new Exception("there has been some error, the API has responded empty.");
-            }
 
             // No OK
             if (httpResponseMessage.StatusCode != HttpStatusCode.OK)
             {
+                // Verificamos si está vacío
                 JObject result = JObject.Parse(json);
                 Error error = JsonConvert.DeserializeObject<Error>($"{result["error"]}") ?? new Error();
-                throw new Exception($"{error.Message}");
+                if (error.Code != "not_found")
+                {
+                    throw new Exception($"{error.Message}");
+                }
+                else
+                {
+                    json = "{}";
+                }
             }
 
             return json;

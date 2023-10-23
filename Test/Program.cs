@@ -15,8 +15,11 @@ namespace Test
         {
             try
             {
-                HetznerDotNet.ApiCore.ApiToken = await File.ReadAllTextAsync("D:\\ApiKey.txt");
+                HetznerDotNet.ApiCore.ApiToken = await File.ReadAllTextAsync("D:\\HetznerApiKey.txt");
 
+                var a = await HetznerDotNet.Api.Server.Get(38508833);
+                a = await HetznerDotNet.Api.Server.Get(1234567890);
+                Console.Write("");
                 //List<HetznerDotNet.Api.Datacenter> listDatacenters = await HetznerDotNet.Api.Datacenter.Get();
                 //HetznerDotNet.Api.Datacenter datacenter = await HetznerDotNet.Api.Datacenter.Get(4);
 
@@ -234,7 +237,7 @@ namespace Test
                 //sb.AppendLine($"package_upgrade: true");
 
                 //var server = await HetznerDotNet.Api.Server.Create($"{Guid.NewGuid()}", new List<long> { 11155098 }, 4, 45557056, 22, true, true, sb.ToString());
-                
+
                 // Name |Server name
                 string name = "server-01";
                 
