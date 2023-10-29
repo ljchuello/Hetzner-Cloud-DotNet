@@ -1,31 +1,38 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Title>Hetzner API Cloud for DotNET</Title>
-    <Version>1.1.4</Version>
-    <Authors>ljchuello</Authors>
-    <Product>Hetzner API Cloud for DotNET</Product>
-    <Description>Library that allows you to manage all Hetzner Cloud services.</Description>
-    <PackageIcon>icon_128.png</PackageIcon>
-    <PackageProjectUrl>https://www.nuget.org/packages/HetznerDotNet/</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/ljchuello/Hetzner-Cloud-DotNet</RepositoryUrl>
-    <RepositoryType>git</RepositoryType>
-    <PackageId>HetznerCloudApiDotNet</PackageId>
-    <PackageTags>C#;Hetzner;</PackageTags>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>netstandard2.1</TargetFramework>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 
-  <ItemGroup>
-    <None Include="..\.editorconfig" Link=".editorconfig" />
-    <None Include="..\icon_128.png">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-  </ItemGroup>
+		<PackageId>HetznerCloudApiDotNet</PackageId>
+		<Title>Hetzner API Cloud for DotNET</Title>
+		<Version>1.1.6</Version>
+		<Authors>ljchuello</Authors>
+		<Description>Library that allows you to manage all Hetzner Cloud services.</Description>
+		<PackageProjectUrl>https://www.nuget.org/packages/HetznerDotNet/</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/ljchuello/Hetzner-Cloud-DotNet</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<Copyright>MIT</Copyright>
+		<PackageTags>C#;Hetzner;ljchuello;</PackageTags>
+		<PackageIcon>icon_128.png</PackageIcon>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-  </ItemGroup>
+	<ItemGroup>
+		<None Include="..\.editorconfig" Link=".editorconfig" />
+		<None Include="..\icon_128.png">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+		<None Include="..\README.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+	</ItemGroup>
 
 </Project>

@@ -74,5 +74,26 @@ namespace HetznerDotNet.Api
             // Send post
             await ApiCore.SendDeleteRequest($"/servers/{server.Id}");
         }
+
+        public static async Task AttachToNetwork(Server server, Network network, string ip = "")
+        {
+            // Preparing raw
+            string raw;
+            raw = string.IsNullOrEmpty(ip) == false
+                ? $"{{ \"ip\": \"{ip}\", \"network\": {network.Id} }}"
+                : $"{{ \"network\": {network.Id} }}";
+
+            // Send post
+            await ApiCore.SendPostRequest($"/servers/{server.Id}/actions/attach_to_network", raw);
+        }
+
+        public static async Task DetachToNetwork(Server server, Network network)
+        {
+            // Preparing raw
+            string raw = $"{{\"network\":{network.Id}}}";
+
+            // Send post
+            await ApiCore.SendPostRequest($"/servers/{server.Id}/actions/detach_from_network", raw);
+        }
     }
 }

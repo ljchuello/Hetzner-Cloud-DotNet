@@ -1,6 +1,4 @@
-﻿using System.Diagnostics.SymbolStore;
-using Newtonsoft.Json;
-using System.Text;
+﻿using System.Text;
 
 namespace Test
 {
@@ -17,9 +15,19 @@ namespace Test
             {
                 HetznerDotNet.ApiCore.ApiToken = await File.ReadAllTextAsync("D:\\HetznerApiKey.txt");
 
-                var a = await HetznerDotNet.Api.Server.Get(38508833);
-                a = await HetznerDotNet.Api.Server.Get(1234567890);
-                Console.Write("");
+                HetznerDotNet.Api.Server server = await HetznerDotNet.Api.Server.Get(38733558);
+
+                HetznerDotNet.Api.Network network = await HetznerDotNet.Api.Network.Get(3501724);
+
+                await HetznerDotNet.Api.Server.AttachToNetwork(server, network);
+                await HetznerDotNet.Api.Server.AttachToNetwork(server, network, "10.0.17.35");
+                await HetznerDotNet.Api.Server.DetachToNetwork(server, network);
+
+                Console.WriteLine();
+
+                //var a = await HetznerDotNet.Api.Server.Get(38508833);
+                //a = await HetznerDotNet.Api.Server.Get(1234567890);
+                //Console.Write("");
                 //List<HetznerDotNet.Api.Datacenter> listDatacenters = await HetznerDotNet.Api.Datacenter.Get();
                 //HetznerDotNet.Api.Datacenter datacenter = await HetznerDotNet.Api.Datacenter.Get(4);
 
@@ -238,47 +246,47 @@ namespace Test
 
                 //var server = await HetznerDotNet.Api.Server.Create($"{Guid.NewGuid()}", new List<long> { 11155098 }, 4, 45557056, 22, true, true, sb.ToString());
 
-                // Name |Server name
-                string name = "server-01";
+                //// Name |Server name
+                //string name = "server-01";
                 
-                // Ssh | Get all ssh 
-                List<long> listSshId = (await HetznerDotNet.Api.SshKey.Get()).Select(x => x.Id).ToList();
+                //// Ssh | Get all ssh 
+                //List<long> listSshId = (await HetznerDotNet.Api.SshKey.Get()).Select(x => x.Id).ToList();
 
-                // Location | Get Ashburn
-                HetznerDotNet.Api.Location location = await HetznerDotNet.Api.Location.Get(4);
+                //// Location | Get Ashburn
+                //HetznerDotNet.Api.Location location = await HetznerDotNet.Api.Location.Get(4);
 
-                // Image | Get Debian 11
-                HetznerDotNet.Api.Image image = await HetznerDotNet.Api.Image.Get(45557056);
+                //// Image | Get Debian 11
+                //HetznerDotNet.Api.Image image = await HetznerDotNet.Api.Image.Get(45557056);
 
-                // Server Type | cpx11 | 2 vCores | 2 GB RAM | 40 GB SSD
-                HetznerDotNet.Api.ServerType serverType = await HetznerDotNet.Api.ServerType.Get(22);
+                //// Server Type | cpx11 | 2 vCores | 2 GB RAM | 40 GB SSD
+                //HetznerDotNet.Api.ServerType serverType = await HetznerDotNet.Api.ServerType.Get(22);
 
-                // Ipv4 | ipv6
-                bool ip4 = true;
-                bool ip6 = true;
+                //// Ipv4 | ipv6
+                //bool ip4 = true;
+                //bool ip6 = true;
 
-                // Config
-                StringBuilder sb = new StringBuilder();
-                sb.AppendLine($"#cloud-config");
-                sb.AppendLine($"package_update: true");
-                sb.AppendLine($"package_upgrade: true");
-                sb.AppendLine($"runcmd:");
-                sb.AppendLine($"apt install unzip -y");
-                sb.AppendLine($"apt install nginx -y");
+                //// Config
+                //StringBuilder sb = new StringBuilder();
+                //sb.AppendLine($"#cloud-config");
+                //sb.AppendLine($"package_update: true");
+                //sb.AppendLine($"package_upgrade: true");
+                //sb.AppendLine($"runcmd:");
+                //sb.AppendLine($"apt install unzip -y");
+                //sb.AppendLine($"apt install nginx -y");
 
-                HetznerDotNet.Api.Server server = await HetznerDotNet.Api.Server.Create(
-                    name, // Server name
-                    listSshId, // List ssh
-                    location.Id, // Server location
-                    image.Id, // Image of the operating system to mount
-                    serverType.Id, // server size id
-                    enableIpv4: ip4, // Enable ipv4
-                    enableIpv6: ip6, // Enable ipv6
-                    cloudConfig: sb.ToString()); // Config to autostart
+                //HetznerDotNet.Api.Server server = await HetznerDotNet.Api.Server.Create(
+                //    name, // Server name
+                //    listSshId, // List ssh
+                //    location.Id, // Server location
+                //    image.Id, // Image of the operating system to mount
+                //    serverType.Id, // server size id
+                //    enableIpv4: ip4, // Enable ipv4
+                //    enableIpv6: ip6, // Enable ipv6
+                //    cloudConfig: sb.ToString()); // Config to autostart
 
-                Console.Write(server);
+                //Console.Write(server);
 
-                Console.WriteLine(0);
+                //Console.WriteLine(0);
             }
             catch (Exception ex)
             {

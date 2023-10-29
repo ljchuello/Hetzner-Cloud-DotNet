@@ -119,5 +119,10 @@ namespace HetznerDotNet.Objects.Server
 
         [JsonProperty("placement_group")]
         public Api.PlacementGroup? PlacementGroup { get; set; }
+
+        public static implicit operator Server(List<Api.Server> v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
