@@ -6,7 +6,7 @@
 
 		<PackageId>HetznerCloudApiDotNet</PackageId>
 		<Title>Hetzner API Cloud for DotNET</Title>
-		<Version>1.1.6</Version>
+		<Version>1.1.7</Version>
 		<Authors>ljchuello</Authors>
 		<Description>Library that allows you to manage all Hetzner Cloud services.</Description>
 		<PackageProjectUrl>https://www.nuget.org/packages/HetznerDotNet/</PackageProjectUrl>

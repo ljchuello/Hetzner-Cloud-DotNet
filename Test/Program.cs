@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using HetznerDotNet.Api;
 
 namespace Test
 {
@@ -15,13 +16,16 @@ namespace Test
             {
                 HetznerDotNet.ApiCore.ApiToken = await File.ReadAllTextAsync("D:\\HetznerApiKey.txt");
 
-                HetznerDotNet.Api.Server server = await HetznerDotNet.Api.Server.Get(38733558);
+                //HetznerDotNet.Api.Server server = await HetznerDotNet.Api.Server.Get(38733558);
 
-                HetznerDotNet.Api.Network network = await HetznerDotNet.Api.Network.Get(3501724);
+                //HetznerDotNet.Api.Network network = await HetznerDotNet.Api.Network.Get(3501724);
 
-                await HetznerDotNet.Api.Server.AttachToNetwork(server, network);
-                await HetznerDotNet.Api.Server.AttachToNetwork(server, network, "10.0.17.35");
-                await HetznerDotNet.Api.Server.DetachToNetwork(server, network);
+                //await HetznerDotNet.Api.Server.AttachToNetwork(server, network);
+                //await HetznerDotNet.Api.Server.AttachToNetwork(server, network, "10.0.17.35");
+                //await HetznerDotNet.Api.Server.DetachToNetwork(server, network);
+
+                Server server = await Server.Create($"{Guid.NewGuid()}-666666", new List<long> { 13121954 }, 2,
+                    45557056, 22, true, true);
 
                 Console.WriteLine();
 
@@ -248,7 +252,7 @@ namespace Test
 
                 //// Name |Server name
                 //string name = "server-01";
-                
+
                 //// Ssh | Get all ssh 
                 //List<long> listSshId = (await HetznerDotNet.Api.SshKey.Get()).Select(x => x.Id).ToList();
 
