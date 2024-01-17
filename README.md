@@ -6,6 +6,25 @@
 
 This library allows you to manage all the services offered by Hetzner Cloud, with this library you can manage and automate the creation of servers until the implementation of applications that allow you to scale horizontally.
 
+## 📢 **ATTENTION: This package has been marked as obsolete** 📢
+
+Hello to all HetznerCloudApiDotNet users 👋. We want to inform you that this library will no longer be actively maintained. But don't worry, we have something better for you! 😃
+
+🚀 **Introducing the new and improved package: HetznerCloud.API** 🚀
+
+This new package is the advanced version of HetznerCloudApiDotNet. Here are some key points:
+
+- **Better Documentation**: We've worked hard to ensure you understand everything you need to know quickly and easily.
+- **Easier to Use**: Designed with simplicity in mind, so you can integrate it into your projects without any complications.
+- **Method Compatibility**: All methods are backward compatible, requiring very few changes for migration.
+- **Updated Features**: Take advantage of the latest features and improvements in managing the Hetzner Cloud API.
+
+🔗 **Find the new package here**: [github.com/ljchuello/HetznerCloud.API](https://github.com/ljchuello/HetznerCloud.API)
+
+We encourage you to migrate to this new package for a better experience, easy adaptation, and ongoing support. If you have any questions or need help with the migration, feel free to contact us.
+
+Thank you for your continued support! 🙏
+
 ## Compatibility
 
 This library is developed in .NET Standard 2.1 and is compatible with all .NET and .NET Core implementations (**.NET Framework is not supported**), it can also be used in Console projects, Web API, Class Library and even with Blazor WASM .
